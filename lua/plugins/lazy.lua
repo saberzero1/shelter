@@ -529,6 +529,9 @@ require('lazy').setup({{
 }, {
     "catppuccin/nvim",
     as = "catppuccin"
+}, { -- Code::Stats
+    'YannickFricke/codestats.nvim',
+    dependencies = {'nvim-lua/plenary.nvim'}
 }, { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
