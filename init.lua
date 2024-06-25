@@ -218,6 +218,7 @@ require('options')
 require('overrides.yank')
 
 require('plugins.code-stats')
+
 -- require('plugins.gitsigns')
 -- require('plugins.neogit')
 -- require('plugins.codesnap')
