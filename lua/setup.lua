@@ -10,7 +10,7 @@ require("lazy").setup({
   { import = "plugins.luvit" },
   { import = "plugins.lsp-config" },
   { import = "plugins.autoformat" },
-  { import = "plugins.autocomplete" },
+  { import = "plugins.autocompletion" },
   { import = "plugins.theme" },
   { import = "plugins.comments" },
   { import = "plugins.mini" },
