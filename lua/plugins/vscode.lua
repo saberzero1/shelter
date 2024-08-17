@@ -4,9 +4,6 @@ local enabled = {}
 vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   -- core plugins
   "lazy.nvim",
-  "AstroNvim",
-  "astrocore",
-  "astroui",
   "Comment.nvim",
   "nvim-autopairs",
   "nvim-treesitter",
@@ -42,8 +39,6 @@ Config.options.defaults.cond = function(plugin) return enabled[plugin.name] end
 return {
   -- add a few keybindings
   {
-    "AstroNvim/astrocore",
-    ---@param opts AstroCoreOpts
     opts = function(_, opts)
       local maps = assert(opts.mappings)
 
@@ -112,8 +107,6 @@ return {
       maps.n["<Leader>lf"] = function() require("vscode-neovim").action "editor.action.formatDocument" end
     end,
   },
-  -- disable colorscheme setting
-  { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
 }
