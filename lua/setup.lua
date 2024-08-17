@@ -1,3 +1,5 @@
+require "config.options"
+
 require("lazy").setup({
   { import = "plugins.copilot" },
   { import = "plugins.vscode" },
