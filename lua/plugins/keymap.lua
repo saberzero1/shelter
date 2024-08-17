@@ -3,12 +3,10 @@ return { -- Useful plugin to show you pending keybinds.
   'folke/which-key.nvim',
   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   config = function() -- This is the function that runs, AFTER loading
-    local whichkey = require 'which-key'
-
-    whichkey.setup()
+    require('which-key').setup()
 
     -- Document existing key chains
-    whichkey.add({
+    require('which-key').add({
       { '<leader>c', group = '[C]ode' },
       { '<leader>d', group = '[D]ocument' },
       { '<leader>r', group = '[R]ename' },
