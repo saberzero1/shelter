@@ -20,8 +20,6 @@ local function change_scale_factor(increment, clamp) set_scale_factor(vim.g.neov
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocore",
-  ---@type AstroCoreOpts
   opts = {
     options = {
       g = {
