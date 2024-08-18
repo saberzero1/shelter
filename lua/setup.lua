@@ -1,9 +1,11 @@
 require "config.options"
 
+require "plugins.neovide"
+
 require("lazy").setup({
   { import = "plugins.copilot" },
   { import = "plugins.vscode" },
-  { import = "plugins.neovide" },
+  --{ import = "plugins.neovide" },
   { import = "plugins.bad-practices" },
   { import = "plugins.git" },
   { import = "plugins.keymap" },
@@ -52,5 +54,8 @@ require("lazy").setup({
     },
   },
 } --[[@as LazyConfig]])
+
+require "config.keymaps"
+require "config.autocmds"
 
 require "overrides"
