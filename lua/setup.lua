@@ -55,6 +55,10 @@ require("lazy").setup({
   },
 } --[[@as LazyConfig]])
 
+if vim.g.vscode then
+  require "plugins.vscode-keymaps"
+end
+
 require "config.keymaps"
 require "config.autocmds"
 
