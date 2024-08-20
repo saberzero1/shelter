@@ -1,8 +1,8 @@
-local vscode = require 'vscode'
+local vscode = require("vscode")
 
-vim.keymap.set('', '<Space>', '<Nop>')
-vim.g.localleader = ' '
-vim.g.mapleader = ' '
+vim.keymap.set("", "<Space>", "<Nop>", opts)
+vim.g.localleader = " "
+vim.g.mapleader = " "
 
 vim.keymap.set('n', '<leader>q', function()
   vscode.action 'workbench.action.closeWindow'
