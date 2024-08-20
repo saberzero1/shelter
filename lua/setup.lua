@@ -56,7 +56,7 @@ require("lazy").setup({
 } --[[@as LazyConfig]])
 
 if vim.g.vscode then
-  require "plugins.vscode-keymaps"
+  require "plugins.azure-data-studio"
 end
 
 require "config.keymaps"
