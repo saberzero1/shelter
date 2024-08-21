@@ -1,8 +1,8 @@
-local vscode = require("vscode")
+local vscode = require('vscode')
 
-vim.keymap.set("", "<Space>", "<Nop>", opts)
-vim.g.localleader = " "
-vim.g.mapleader = " "
+vim.keymap.set('', '<Space>', '<Nop>', opts)
+vim.g.mapleader = ' '
+vim.g.localleader = ' '
 
 vim.keymap.set('n', '<leader>q', function()
   vscode.action 'workbench.action.closeWindow'
@@ -145,3 +145,77 @@ end)
 vim.keymap.set('n', '<Leader>lf', function()
   vscode.action 'editor.action.formatDocument'
 end)
+
+-- harpoon
+vim.keymap.set('n', '<leader>ae', function()
+  vscode.action 'vscode-harpoon.addEditor'
+end)
+vim.keymap.set('n', '<leader>e', function()
+  vscode.action 'vscode-harpoon.editEditors'
+end)
+vim.keymap.set('n', '<leader>pe', function()
+  vscode.action 'vscode-harpoon.editorQuickPick'
+end)
+
+vim.keymap.set('n', '<leader>1', function()
+  vscode.action 'vscode-harpoon.gotoEditor1'
+end)
+vim.keymap.set('n', '<leader>2', function()
+  vscode.action 'vscode-harpoon.gotoEditor2'
+end)
+vim.keymap.set('n', '<leader>3', function()
+  vscode.action 'vscode-harpoon.gotoEditor3'
+end)
+vim.keymap.set('n', '<leader>4', function()
+  vscode.action 'vscode-harpoon.gotoEditor4'
+end)
+vim.keymap.set('n', '<leader>5', function()
+  vscode.action 'vscode-harpoon.gotoEditor5'
+end)
+vim.keymap.set('n', '<leader>6', function()
+  vscode.action 'vscode-harpoon.gotoEditor6'
+end)
+vim.keymap.set('n', '<leader>7', function()
+  vscode.action 'vscode-harpoon.gotoEditor7'
+end)
+vim.keymap.set('n', '<leader>8', function()
+  vscode.action 'vscode-harpoon.gotoEditor8'
+end)
+vim.keymap.set('n', '<leader>9', function()
+  vscode.action 'vscode-harpoon.gotoEditor9'
+end)
+
+vim.keymap.set('n', '<leader>a1', function()
+  vscode.action 'vscode-harpoon.addEditor1'
+end)
+vim.keymap.set('n', '<leader>a2', function()
+  vscode.action 'vscode-harpoon.addEditor2'
+end)
+vim.keymap.set('n', '<leader>a3', function()
+  vscode.action 'vscode-harpoon.addEditor3'
+end)
+vim.keymap.set('n', '<leader>a4', function()
+  vscode.action 'vscode-harpoon.addEditor4'
+end)
+vim.keymap.set('n', '<leader>a5', function()
+  vscode.action 'vscode-harpoon.addEditor5'
+end)
+vim.keymap.set('n', '<leader>a6', function()
+  vscode.action 'vscode-harpoon.addEditor6'
+end)
+vim.keymap.set('n', '<leader>a7', function()
+  vscode.action 'vscode-harpoon.addEditor7'
+end)
+vim.keymap.set('n', '<leader>a8', function()
+  vscode.action 'vscode-harpoon.addEditor8'
+end)
+vim.keymap.set('n', '<leader>a9', function()
+  vscode.action 'vscode-harpoon.addEditor9'
+end)
+
+-- https://github.com/vscode-neovim/vscode-neovim/issues/1624
+-- https://github.com/vscode-neovim/vscode-neovim?tab=readme-ov-file#vscodeactionname-opts
+-- https://www.lazyvim.org/extras/vscode
+-- https://stackoverflow.com/questions/58367207/list-of-all-available-commands-in-vscode
+-- https://medium.com/@shaikzahid0713/integrate-neovim-inside-vscode-5662d8855f9d
+-- https://marketplace.visualstudio.com/items?itemName=tobias-z.vscode-harpoon
