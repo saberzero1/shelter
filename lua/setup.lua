@@ -2,7 +2,7 @@ require 'config.options'
 
 require 'plugins.neovide'
 
-local plugin_settings = require("plugins")
+local plugin_settings = require 'plugins'
 
 local ui_settings = {
   -- If you are using a Nerd Font: set icons to an empty table which will use the

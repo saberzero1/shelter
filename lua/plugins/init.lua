@@ -17,6 +17,7 @@ if not vim.g.vscode then
     { import = 'plugins.harpoon' },
     { import = 'plugins.gutter' },
     { import = 'plugins.gutter-extensions' },
+    { import = 'plugins.games' },
   }
 else
   return {
@@ -36,3 +37,4 @@ else
     { import = 'plugins.treesitter' },
   }
 end
+
