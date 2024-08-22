@@ -1,8 +1,6 @@
-require 'config.options'
+require 'pre-setup'
 
-require 'plugins.neovide'
-
-local plugin_settings = require 'plugins'
+local plugins = require 'plugins'
 
 local ui_settings = {
   -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -39,17 +37,17 @@ local performance_settings = {
 }
 
 if not vim.g.vscode then
-  require('lazy').setup(plugin_settings --[[@as LazySpec]], {
+  require('lazy').setup(plugins --[[@as LazySpec]], {
     -- Configure any other `lazy.nvim` configuration options here
     ui = ui_settings,
     performance = performance_settings,
   } --[[@as LazyConfig]])
 else
-  require('lazy').setup(plugin_settings --[[@as LazySpec]], {
+  require('lazy').setup(plugins --[[@as LazySpec]], {
     -- Configure any other `lazy.nvim` configuration options here
     ui = ui_settings,
     performance = performance_settings,
   } --[[@as LazyConfig]])
 end
 
-require 'overrides'
+require 'post-setup'

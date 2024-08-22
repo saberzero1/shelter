@@ -1,5 +1,4 @@
 if vim.g.neovide then
-
   vim.g.gui_font_default_size = 16
   vim.g.gui_font_size = vim.g.gui_font_default_size
   vim.g.gui_font_face = "Fira Code"
