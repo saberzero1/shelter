@@ -1,3 +1,7 @@
+if not vim.g.vscode then
+  return {}
+end -- don't do anything in non-vscode instances
+
 local vscode = require('vscode')
 
 vim.keymap.set('', '<Space>', '<Nop>', opts)

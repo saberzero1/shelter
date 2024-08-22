@@ -50,11 +50,6 @@ else
     ui = ui_settings,
     performance = performance_settings,
   } --[[@as LazyConfig]])
-
-  require 'plugins.azure-data-studio'
 end
-
-require 'config.keymaps'
-require 'config.autocmds'
 
 require 'overrides'

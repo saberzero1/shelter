@@ -1,5 +1,5 @@
 ---@type LazySpec
 return {
-  "antonk52/bad-practices.nvim",
+  'antonk52/bad-practices.nvim',
   opts = {},
 }
