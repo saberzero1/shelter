@@ -33,6 +33,10 @@ key('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 key('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 key('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- Set H/L to start/end of line (ignoring whitespaces)
+vim.keymap.set('n', 'H', '^', { desc = 'Move to first non-blank character of the line' })
+vim.keymap.set('n', 'L', 'g_', { desc = 'Move to last non-blank character of the line' })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
