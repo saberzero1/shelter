@@ -22,7 +22,7 @@ return {
           {
             desc = ' Grep',
             group = 'DiagnosticHint',
-            action = 'Telescope find_grep',
+            action = 'Telescope live_grep',
             key = 'g',
           },
           {
