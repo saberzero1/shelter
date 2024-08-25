@@ -21,7 +21,7 @@ return {
           },
           {
             desc = ' Grep',
-            group = 'DiagnosticHint',
+            group = 'Label',
             action = 'Telescope live_grep',
             key = 'g',
           },
