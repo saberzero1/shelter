@@ -17,6 +17,28 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
 
+    -- Move lines/visual selection with Alt (Meta) + hjkl
+    require('mini.move').setup()
+
+    -- Animate movements
+    require('mini.animate').setup({
+      cursor = {
+        enable = false,
+      },
+      scroll = {
+        enable = true,
+      },
+      resize = {
+        enable = true,
+      },
+      open = {
+        enable = true,
+      },
+      close = {
+        enable = true,
+      },
+    })
+
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
     --  and try some other statusline plugin
