@@ -21,7 +21,7 @@ return { -- Collection of various small independent plugins/modules
     require('mini.move').setup()
 
     -- Animate movements
-    require('mini.animate').setup({
+    --[[require('mini.animate').setup({
       cursor = {
         enable = false,
       },
@@ -37,7 +37,8 @@ return { -- Collection of various small independent plugins/modules
       close = {
         enable = true,
       },
-    })
+    })]]
+    --
 
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
