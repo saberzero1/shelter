@@ -29,7 +29,7 @@ return {
             desc = ' Keymaps',
             group = 'Number',
             action = 'Telescope keymaps',
-            key = 'k',
+            key = 'm',
           },
         },
       },
