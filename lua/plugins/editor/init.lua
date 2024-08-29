@@ -5,4 +5,6 @@ return {
   { import = 'plugins.editor.dashboard' },
   { import = 'plugins.editor.notify' },
   { import = 'plugins.editor.cyberdream' },
+  { import = 'plugins.editor.colorizer' },
+  { import = 'plugins.editor.scrollbar' },
 }
