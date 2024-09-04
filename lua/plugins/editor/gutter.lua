@@ -6,7 +6,7 @@ return {
   opts = function()
     local utils = require("scripts.cursorline-gradients")
 
-    return {
+--[[    return {
       options = {
         component_separators = { left = " ", right = " " },
         section_separators = { left = " ", right = " " },
@@ -69,8 +69,8 @@ return {
       extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
     }
   end,
-}
-    --[[ local copilot_colors = {
+}]]--
+    local copilot_colors = {
       [""] = utils.get_hlgroup("Comment"),
       ["Normal"] = utils.get_hlgroup("Comment"),
       ["Warning"] = utils.get_hlgroup("DiagnosticError"),
@@ -81,8 +81,8 @@ return {
 
       options = {
         icons_enabled = true,
-        --theme = 'auto',
-        theme = 'cyberdream',
+        theme = 'auto',
+        --theme = 'cyberdream',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -126,7 +126,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
+      extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
     }
   end,
-} ]]--
+}

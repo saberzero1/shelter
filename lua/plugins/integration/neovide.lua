@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   callback = function()
     -- vim.b.statuscolumn = defaultStatusCol
     vim.wo.cursorline = false
-    -- vim.wo.cursorcolumn = false
+    vim.wo.cursorcolumn = false
     vim.opt.colorcolumn = ""
   end,
 })
@@ -47,17 +47,18 @@ vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
   pattern = { "*" },
   callback = function()
     -- GRADIENT STATUS COL
-    -- local separator = vim.g.neovide and " │  " or " ┃ "
-    -- local separator = vim.g.neovide and " │  " or " "
-    -- local separator = " │  "
-    -- vim.b.statuscolumn =
-    --     '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-    --     '%#LineNr3#%{(v:relnum == 3)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-    --     '%#LineNr2#%{(v:relnum == 2)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-    --     '%#LineNr1#%{(v:relnum == 1)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-    --     '%#LineNr0#%{(v:relnum == 0)?v:lnum.\"' .. separator .. '\":\"\"}'
+    local separator = vim.g.neovide and " │  " or " ┃ "
+    local separator = vim.g.neovide and " │  " or " "
+    local separator = " │  "
+    vim.b.statuscolumn =
+         '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+         '%#LineNr3#%{(v:relnum == 3)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+         '%#LineNr2#%{(v:relnum == 2)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+         '%#LineNr1#%{(v:relnum == 1)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+         '%#LineNr0#%{(v:relnum == 0)?v:lnum.\"' .. separator .. '\":\"\"}'
     vim.wo.cursorline = true
-    -- vim.wo.cursorcolumn = true
+    vim.wo.cursorcolumn = true
+    vim.opt.colorcolumn = "80"
   end,
 })
 

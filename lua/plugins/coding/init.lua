@@ -7,4 +7,5 @@ return {
   { import = 'plugins.coding.treesitter' },
   { import = 'plugins.coding.copilot' },
   { import = 'plugins.coding.supermaven' },
+  { import = 'plugins.coding.spectre' },
 }

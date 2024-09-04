@@ -70,6 +70,22 @@ vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = 'both'
+vim.opt.cursorcolumn = false
+
+-- Show line at 80 characters
+vim.opt.colorcolumn = "80"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
+
+-- light/dark mode
+vim.opt.background = 'dark'
+
+-- highlight-groups
+vim.api.nvim_set_hl(0, 'LineNr4', { bg = "#3B4261" })
+vim.api.nvim_set_hl(0, 'LineNr3', { bg = "#4d71a0" })
+vim.api.nvim_set_hl(0, 'LineNr2', { bg = "#6fc1cf" })
+vim.api.nvim_set_hl(0, 'LineNr1', { bg = "#eeffee" })
+vim.api.nvim_set_hl(0, 'LineNr0', { bg = "#FFFFFF", --bg = "NONE",
+ bold = true })
