@@ -44,12 +44,26 @@ return { -- Useful plugin to show you pending keybinds.
     spec = {
       { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
+
+      -- Git
+      -- Config
+      { '<leader>g?', group = '[?] Config', mode = { 'n', 'v' } },
+      { '<leader>g?g', group = '[G]lobal', mode = { 'n', 'v' } },
+      { '<leader>g?l', group = '[L]ocal', mode = { 'n', 'v' } },
+
+      -- List
+      { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
+      { '<leader>gl', group = '[L]ist', mode = { 'n', 'v' } },
+      { '<leader>glb', group = '[B]ranch', mode = { 'n', 'v' } },
+
+
+      -- Harpoon
+      { '<leader>h', group = '[H]arpoon' },
+
       { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]earch' },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
-      { '<leader>g', group = '[G]it Hunk', mode = { 'n', 'v' } },
-      { '<leader>h', group = '[H]arpoon' },
     },
   },
 }
