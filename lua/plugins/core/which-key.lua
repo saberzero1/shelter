@@ -46,14 +46,20 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>d', group = '[D]ocument' },
 
       -- Git
-      -- Config
-      { '<leader>g?', group = '[?] Config', mode = { 'n', 'v' } },
-      { '<leader>g?g', group = '[G]lobal', mode = { 'n', 'v' } },
-      { '<leader>g?l', group = '[L]ocal', mode = { 'n', 'v' } },
-
-      -- List
       { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
+      -- Git Config
+      { '<leader>g?', group = '[?] Config', mode = { 'n', 'v' } },
+      -- Git Config Global
+      { '<leader>g?g', group = '[G]lobal', mode = { 'n', 'v' } },
+      -- Git Config Local
+      { '<leader>g?l', group = '[L]ocal', mode = { 'n', 'v' } },
+      -- Git Fetch
+      { '<leader>gf', group = '[F]etch', mode = { 'n', 'v' } },
+      -- Git Pull/Push
+      { '<leader>gp', group = '[P]ull/[P]ush', mode = { 'n', 'v' } },
+      -- Git List
       { '<leader>gl', group = '[L]ist', mode = { 'n', 'v' } },
+      -- Git List Branch
       { '<leader>glb', group = '[B]ranch', mode = { 'n', 'v' } },
 
 

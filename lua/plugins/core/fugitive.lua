@@ -84,9 +84,28 @@ return {
     desc = '[N]ame' },
     --{ '<leader>g?gs', '<cmd>G config<CR>', desc = '[S]ign' },
     --{ '<leader>g?ls', '<cmd>G config<CR>', desc = '[S]ign' },
+    -- Git Pull/Push
+    { '<leader>gpu',
+    function()
+      vim.api.nvim_command('G fetch')
+      vim.api.nvim_command('G push')
+    end,
+    desc = '[U]pload/[P]ush' },
+    { '<leader>gpd',
+    function()
+      vim.api.nvim_command('G fetch')
+      vim.api.nvim_command('G pull')
+    end,
+    desc = '[D]ownload/[P]ull' },
 
-
-    { '<leader>gf', '<cmd>G fetch<CR>', desc = '[F]etch' },
+    -- Git Fetch
+    { '<leader>gff', '<cmd>G fetch<CR>', desc = '[F]etch' },
+    { '<leader>gfu',
+    function()
+      vim.api.nvim_command('G remote update')
+      vim.api.nvim_command('G status -uno')
+    end,
+    desc = '[U]pdate' },
     { '<leader>gi', '<cmd>G init<CR>', desc = '[I]nit' },
     { '<leader>gp', '<cmd>G pull<CR>', desc = '[P]ull' },
 
