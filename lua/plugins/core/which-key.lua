@@ -61,6 +61,12 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>gl', group = '[L]ist', mode = { 'n', 'v' } },
       -- Git List Branch
       { '<leader>glb', group = '[B]ranch', mode = { 'n', 'v' } },
+      -- Git List Config
+      { '<leader>glc', group = '[C]onfig', mode = { 'n', 'v' } },
+      -- Git List Config Global
+      { '<leader>glcg', group = '[G]lobal', mode = { 'n', 'v' } },
+      -- Git List Config Local
+      { '<leader>glcl', group = '[L]ocal', mode = { 'n', 'v' } },
 
 
       -- Harpoon

@@ -2,11 +2,6 @@
 return {
   'tpope/vim-fugitive',
   keys = {
-    -- Branch
-    { '<leader>glba', '<cmd>G branch -a<CR>', desc = '[A]ll' },
-    { '<leader>glbr', '<cmd>G branch -r<CR>', desc = '[R]emote' },
-    { '<leader>glbl', '<cmd>G branch<CR>', desc = '[L]ocal' },
-
     { '<leader>gc',
     function()
       local user_input = vim.fn.input('Branch: ')
@@ -109,6 +104,53 @@ return {
     { '<leader>gi', '<cmd>G init<CR>', desc = '[I]nit' },
     { '<leader>gp', '<cmd>G pull<CR>', desc = '[P]ull' },
 
+    -- Git List
+    -- Git List Branch
+    { '<leader>glba', '<cmd>G branch -a<CR>', desc = '[A]ll' },
+    { '<leader>glbr', '<cmd>G branch -r<CR>', desc = '[R]emote' },
+    { '<leader>glbl', '<cmd>G branch<CR>', desc = '[L]ocal' },
+    -- Git List Config Global
+    { '<leader>glcge',
+    function()
+      local current = vim.api.nvim_exec('G config --global user.email', true)
+      if current == nil or current == '' then
+        current = 'Global Email not set'
+      else
+        print('Current global user.email is "' .. current .. '"')
+      end
+    end,
+    desc = '[E]mail' },
+    { '<leader>glcgn',
+    function()
+      local current = vim.api.nvim_exec('G config --global user.name', true)
+      if current == nil or current == '' then
+        current = 'Global Name not set'
+      else
+        print('Current global user.name is "' .. current .. '"')
+      end
+    end
+    , desc = '[N]ame'},
+    -- Git List Config Local
+    { '<leader>glcle',
+    function()
+      local current = vim.api.nvim_exec('G config --local user.email', true)
+      if current == nil or current == '' then
+        current = 'Local Email not set'
+      else
+        print('Current local user.email is "' .. current .. '"')
+      end
+    end,
+    desc = '[E]mail' },
+    { '<leader>glcln',
+    function()
+      local current = vim.api.nvim_exec('G config --local user.name', true)
+      if current == nil or current == '' then
+        current = 'Local Name not set'
+      else
+        print('Current local user.name is "' .. current .. '"')
+      end
+    end,
+    desc = '[N]ame' },
     { '<leader>gs', '<cmd>G status<CR>', desc = '[S]tatus' },
   },
 }
