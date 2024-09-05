@@ -19,14 +19,14 @@ return {
     -- Git Pull/Push
     { '<leader>gpu',
     function()
-      vim.api.nvim_command('G fetch')
-      vim.api.nvim_command('G push')
+      git.call('fetch')
+      git.call('push')
     end,
     desc = '[U]pload/[P]ush' },
     { '<leader>gpd',
     function()
-      vim.api.nvim_command('G fetch')
-      vim.api.nvim_command('G pull')
+      git.call('fetch')
+      git.call('pull')
     end,
     desc = '[D]ownload/[P]ull' },
 
@@ -34,8 +34,8 @@ return {
     { '<leader>gff', '<cmd>G fetch<CR>', desc = '[F]etch' },
     { '<leader>gfu',
     function()
-      vim.api.nvim_command('G remote update')
-      vim.api.nvim_command('G status -uno')
+      git.call('remote update')
+      git.call('status -uno')
     end,
     desc = '[U]pdate' },
     { '<leader>gi', function() git.call('init') end, desc = '[I]nit' },
