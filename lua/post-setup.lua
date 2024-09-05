@@ -18,6 +18,6 @@ if vim.g.neovide then
   vim.g.neovide_background_color_base = "#2a2839"
   vim.g.neovide_background_color = vim.g.neovide_background_color_base .. alpha()
   vim.cmd[[colorscheme tokyonight]]
-else
+elseif not vim.g.vscode then
   vim.cmd[[colorscheme tokyonight]] -- setting
 end
