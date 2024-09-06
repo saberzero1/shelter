@@ -4,6 +4,7 @@ statuscolumn.status_bar = function ()
   local text = ""
 
   text = table.concat({
+    statuscolumn.folds(),
     statuscolumn.number({ mode = "hybrid" }),
     statuscolumn.border(),
   })
