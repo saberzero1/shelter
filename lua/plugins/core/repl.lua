@@ -1,5 +1,8 @@
 -- Can run repl in a floating window
 -- https://github.com/pappasam/nvim-repl/blob/main/images/nvim-repl-demo.gif
+--
+-- TODO: Implement magma.nvim
+-- https://github.com/dccsillag/magma-nvim
 
 ---@type LazySpec
 return {
