@@ -3,11 +3,7 @@ local statuscolumn = {}
 statuscolumn.status_bar = function ()
   local text = ""
 
-  -- Set all the custom highlight groups
-  --statuscolumn.setHl()
-
   text = table.concat({
-    --statuscolumn.folds(),
     statuscolumn.number({ mode = "hybrid" }),
     statuscolumn.border(),
   })
@@ -26,7 +22,6 @@ end
 
 statuscolumn.setHl = function ()
   local hl_colors = { "#3B4261", "#4d71a0", "#6fc1cf", "#eeffee", "#FF9D65", "#eeffee", "#6fc1cf", "#4d71a0", "#3B4261" }
-  --local hl_colors = { "LineNr4", "LineNr3", "LineNr2", "LineNr1", "LineNr0", "LineNr1", "LineNr2", "LineNr3", "LineNr4" }
 
   for index, hl_color in ipairs(hl_colors) do
     vim.api.nvim_set_hl(0, "Gradient_" .. tostring(index), { fg = hl_color })
