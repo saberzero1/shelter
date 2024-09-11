@@ -56,6 +56,8 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>g?g', group = '[G]lobal', mode = { 'n', 'v' } },
       -- Git Config Local
       { '<leader>g?l', group = '[L]ocal', mode = { 'n', 'v' } },
+      -- Git Branch
+      { '<leader>gb', group = '[B]ranch', mode = { 'n', 'v' } },
       -- Git Diff
       { '<leader>gd', group = '[D]iff', mode = { 'n', 'v' } },
       -- Git Fetch

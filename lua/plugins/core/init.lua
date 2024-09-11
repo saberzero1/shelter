@@ -1,4 +1,5 @@
 return {
+  { import = 'plugins.core.notify' },
   { import = 'plugins.core.gitsigns' },
   { import = 'plugins.core.fugitive' },
   { import = 'plugins.core.diffview' },
