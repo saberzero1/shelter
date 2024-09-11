@@ -5,6 +5,7 @@ return {
   'code-stats/code-stats-vim',
   url = 'https://gitlab.com/code-stats/code-stats-vim.git',
   lazy = true,
+  enable = false,
   event = "VeryLazy",
   config = function()
     local api_key = vim.api.nvim_exec('! printenv CODESTATS_API_KEY', true)

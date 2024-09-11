@@ -10,10 +10,17 @@ return {
     local utils = require("scripts.cursorline-gradients")
 
     local code_stats = function()
-      if _G.codestats_loaded ~= nil then
-        return CodeStatsXp()
-      end
-      return 'idle'
+      --local init_code_stats = require('scripts.codestats.init_codestats')
+      --if init_code_stats.codestats ~= nil then
+        --print('pog')
+        --return 'pog'
+        --return init_code_stats.CodeStatsXp()
+      --else
+        --init_code_stats.init_codestats()
+        --print('sadge')
+        --return 'sadge'
+      --end
+      return 'pog'
     end
 
 --[[    return {
