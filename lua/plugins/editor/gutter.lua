@@ -2,9 +2,19 @@
 return {
   'nvim-lualine/lualine.nvim',
   lazy = false,
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    --'code-stats/code-stats-vim',
+  },
   opts = function()
     local utils = require("scripts.cursorline-gradients")
+
+    local code_stats = function()
+      if _G.codestats_loaded ~= nil then
+        return CodeStatsXp()
+      end
+      return 'idle'
+    end
 
 --[[    return {
       options = {
@@ -103,7 +113,7 @@ return {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'filename', 'harpoon2'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {code_stats, 'encoding', 'fileformat', 'filetype'},
         lualine_y = {
           {
             'progress'
