@@ -1,5 +1,6 @@
 return {
   { import = 'plugins.editor.gutter' },
+  { import = 'plugins.editor.gutter-copilot'},
   { import = 'plugins.editor.gutter-harpoon' },
   --{ import = 'plugins.editor.theme' },
   { import = 'plugins.editor.cyberdream' },

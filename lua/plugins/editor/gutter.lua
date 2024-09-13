@@ -89,6 +89,8 @@ return {
 }]]--
     local copilot_colors = {
       [""] = utils.get_hlgroup("Comment"),
+      ["Active"] = utils.get_hlgroup("String"),
+      ["Disabled"] = utils.get_hlgroup("Conceal"),
       ["Normal"] = utils.get_hlgroup("Comment"),
       ["Warning"] = utils.get_hlgroup("DiagnosticError"),
       ["InProgress"] = utils.get_hlgroup("DiagnosticWarn"),
@@ -120,7 +122,33 @@ return {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'filename', 'harpoon2'},
-        lualine_x = {code_stats, 'encoding', 'fileformat', 'filetype'},
+        lualine_x = {        
+          {
+            'copilot',
+            -- Default values
+            symbols = {
+              status = {
+                icons = {
+                  enabled = " ",
+                  sleep = " ",   -- auto-trigger disabled
+                  disabled = " ",
+                  warning = " ",
+                  unknown = " "
+                },
+                hl = {
+                  enabled = copilot_colors["Active"],
+                  sleep = copilot_colors["Normal"],
+                  disabled = copilot_colors["Disabled"],
+                  warning = copilot_colors["Warning"],
+                  unknown = copilot_colors["InProgress"]
+                }
+              },
+              spinners = require("copilot-lualine.spinners").dots,
+              spinner_color = copilot_colors["InProgress"],
+            },
+            show_colors = true,
+            show_loading = true
+          }, 'encoding', 'fileformat', 'filetype'},
         lualine_y = {
           {
             'progress'

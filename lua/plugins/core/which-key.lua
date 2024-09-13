@@ -42,7 +42,14 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
+      -- Code
       { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
+
+      -- copilot
+      { '<leader>C', group = '[C]opilot', mode = { 'i', 's' } },
+      { '<leader>Cp', group = '[p]anel', mode = { 'i', 's' } },
+
+      -- Document
       { '<leader>d', group = '[d]ocument' },
 
       -- Evaluate

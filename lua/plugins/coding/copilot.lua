@@ -1,6 +1,11 @@
-local enabled = false
+local enabled = true
 
 if not enabled then return {} end
+
+local function copilot_command(command)
+  require 'copilot'.setup()
+  vim.api.nvim_exec('Copilot ' .. command, true)
+end
 
 ---@type LazySpec
 return {
@@ -63,5 +68,25 @@ return {
         return opts
       end,
     },
+  },
+  keys = {
+    -- Authenticate
+    { '<leader>Cl', function() copilot_command 'auth signin' end, desc = '[l]ogin' },
+    { '<leader>CL', function() copilot_command 'auth signout' end, desc = '[L]ogout' },
+
+    -- Enable/Disable
+    { '<leader>Ct', function() copilot_command 'suggestion toggle_auto_trigger' end, desc = '[t]oggle' },
+    { '<leader>Cd', function() copilot_command 'disable' end, desc = '[d]isable' },
+    { '<leader>Ce', function() copilot_command 'enable' end, desc = '[e]nable' },
+
+    -- Panel
+    { '<leader>Cpo', function() copilot_command 'panel open' end, desc = '[o]pen' },
+    { '<leader>Cpr', function() copilot_command 'panel refresh' end, desc = '[r]efresh' },
+    { '<leader>Cpa', function() copilot_command 'panel accept' end, desc = '[a]ccept' },
+    { '<leader>Cpn', function() copilot_command 'panel jump_next' end, desc = '[n]ext' },
+    { '<leader>Cpp', function() copilot_command 'panel jump_prev' end, desc = '[p]revious' },
+
+    -- Status
+    { '<leader>Cs', function() copilot_command 'status' end, desc = '[s]tatus' },
   },
 }

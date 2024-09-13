@@ -46,14 +46,14 @@ key('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 key('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 key('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-if vim.g.neovide then
+--[[if vim.g.neovide then
   key("n", "<C-s>", ":w<CR>") -- Save
   key("v", "<C-c>", '"+y') -- Copy
   key("n", "<C-v>", '"+P') -- Paste normal mode
   key("v", "<C-v>", '"+P') -- Paste visual mode
   key("c", "<C-v>", "<C-R>+") -- Paste command mode
   key("i", "<C-v>", '<ESC>l"+Pli') -- Paste insert mode
-end
+end]]--
 
 -- Allow clipboard copy paste in neovim
 key_nvim("", "<C-v>", "+p<CR>", { noremap = true, silent = true })
