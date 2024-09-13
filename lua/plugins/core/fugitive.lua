@@ -1,4 +1,4 @@
-git = require('scripts.git')
+git = require 'scripts.git'
 --[[keymap = require('scripts.keymapper')
 
 local list2 = keymap.list({
@@ -84,64 +84,56 @@ local parsed2 = keymap.parse(list2)]]--
 ---@type LazySpec
 return {
   'tpope/vim-fugitive',
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+  },
   keys = {
-    -- Branch operations
-    { '<leader>gbl', function() git.branch() end, desc = '[L]ist' },
-    { '<leader>gbc', function() git.call('checkout', nil, true, 'Branch') end, desc = '[C]heckout' },
-
-    { '<leader>gc', function() git.call('checkout', nil, true, 'Branch') end, desc = '[C]heckout' },
-    --{ '<leader>ggg', function() vim.notify(vim.inspect(parsed)) end, desc = '[G]et' },
-
-
-    -- Config
-    { '<leader>g?ge', function() git.config.set('user.email') end, desc = '[E]mail' },
-    { '<leader>g?gl', function() git.config.get() end, desc = '[L]ist' },
-    { '<leader>g?gn', function() git.config.set('user.name') end, desc = '[N]ame' },
-    --{ '<leader>g?lc', '<cmd>G config<CR>', desc = '[C]ommit' },
-    { '<leader>g?le', function() git.config.set('user.email', 'local') end, desc = '[E]mail' },
-    { '<leader>g?ll', function() git.config.get(nil, 'local') end, desc = '[L]ist' },
-    { '<leader>g?ln', function() git.config.set('user.name', 'local') end, desc = '[N]ame' },
-    --{ '<leader>g?gs', '<cmd>G config<CR>', desc = '[S]ign' },
-    --{ '<leader>g?ls', '<cmd>G config<CR>', desc = '[S]ign' },
+    -- Git Branch operations
+    { '<leader>gb', git.branch, desc = '[b]ranch' },
+    { '<leader>gc', git.checkout, desc = '[c]heckout' },
+    
+    -- Git Config
+    { '<leader>g?ge', function() git.config.set('user.email') end, desc = '[e]mail' },
+    { '<leader>g?gl', function() git.config.get() end, desc = '[l]ist' },
+    { '<leader>g?gn', function() git.config.set('user.name') end, desc = '[n]ame' },
+    { '<leader>g?le', function() git.config.set('user.email', 'local') end, desc = '[e]mail' },
+    { '<leader>g?ll', function() git.config.get(nil, 'local') end, desc = '[l]ist' },
+    { '<leader>g?ln', function() git.config.set('user.name', 'local') end, desc = '[n]ame' },
     
     -- Git Pull/Push
-    { '<leader>gpu',
-    function()
-      git.call('fetch')
-      git.call('push')
-    end,
-    desc = '[U]pload/[P]ush' },
-    { '<leader>gpd',
-    function()
-      git.call('fetch')
-      git.call('pull')
-    end,
-    desc = '[D]ownload/[P]ull' },
+    { '<leader>gP', git.push, desc = '[P]ush' },
+    { '<leader>gp', git.pull, desc = '[p]ull' },
 
     -- Git Fetch
-    { '<leader>gff', '<cmd>G fetch<CR>', desc = '[F]etch' },
-    { '<leader>gfu',
-    function()
-      git.call('remote update')
-      git.call('status -uno')
-    end,
-    desc = '[U]pdate' },
-    { '<leader>gi', function() git.call('init') end, desc = '[I]nit' },
-    --{ '<leader>gp', function() git.call('pull') end, { desc = '[P]ull' } },
+    { '<leader>gf', git.fetch, desc = '[f]etch' },
+    { '<leader>gF', function() git.fetch('all') end, desc = '[F]etch all' },
+
+    -- Git Init
+    { '<leader>gi', git.init, desc = '[i]nit' },
+    { '<leader>gI', function() git.init('bare') end, desc = '[I]nit bare' },
 
     -- Git List
     -- Git List Branch
-    { '<leader>glba', function() git.branch('-a') end, desc = '[A]ll' },
-    { '<leader>glbr', function() git.branch('-r') end, desc = '[R]emote' },
-    { '<leader>glbl', function() git.branch() end, desc = '[L]ocal' },
+    { '<leader>glba', function() git.branch('-a') end, desc = '[a]ll' },
+    { '<leader>glbr', function() git.branch('-r') end, desc = '[r]emote' },
+    { '<leader>glbl', function() git.branch('') end, desc = '[l]ocal' },
     -- Git List Config Global
-    { '<leader>glcge', function() git.config.get('user.email') end, desc = '[E]mail' },
-    { '<leader>glcgc', function() git.config.get() end, desc = '[C]onfig' },
-    { '<leader>glcgn', function() git.config.get('user.name') end, desc = '[N]ame'},
+    { '<leader>glcge', function() git.config.get('user.email') end, desc = '[e]mail' },
+    { '<leader>glcgc', function() git.config.get() end, desc = '[c]onfig' },
+    { '<leader>glcgn', function() git.config.get('user.name') end, desc = '[n]ame'},
     -- Git List Config Local
-    { '<leader>glcle', function() git.config.get('user.email', 'local') end, desc = '[E]mail' },
-    { '<leader>glclc', function() git.config.get(nil, 'local') end, desc = '[C]onfig' },
-    { '<leader>glcln', function() git.config.get('user.name', 'local') end, desc = '[N]ame' },
-    { '<leader>gs', function() git.call('status') end, desc = '[S]tatus' },
+    { '<leader>glcle', function() git.config.get('user.email', 'local') end, desc = '[e]mail' },
+    { '<leader>glclc', function() git.config.get(nil, 'local') end, desc = '[c]onfig' },
+    { '<leader>glcln', function() git.config.get('user.name', 'local') end, desc = '[n]ame' },
+
+    -- Git Status
+    { '<leader>gs', git.status, desc = '[s]tatus' },
+    
+    -- Git Stash
+    { '<leader>gS', git.stash, desc = '[S]tash' },
+
+    -- Grep (ls-files)
+    { '<leader>g/', git.grep, desc = '[/] Grep' },
   },
 }

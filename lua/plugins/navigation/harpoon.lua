@@ -15,9 +15,9 @@ return {
     harpoon:setup()
     
     -- Keybindings
-    vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "[H]arpoon [A]dd file" })
-    -- vim.keymap.set("n", "<leader>he", function() harpoon:list():toggle_quick_menu() end, { desc = "[H]arpoon [E]nable/disable quick menu" })
-    vim.keymap.set("n", "<leader>he", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "[H]arpoon [E]nable/disable quick menu" })
+    vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "[h]arpoon [a]dd file" })
+    -- vim.keymap.set("n", "<leader>he", function() harpoon:list():toggle_quick_menu() end, { desc = "[h]arpoon [e]nable/disable quick menu" })
+    vim.keymap.set("n", "<leader>he", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "[h]arpoon [e]nable/disable quick menu" })
     vim.keymap.set("n", "<C-x>",
     function()
         vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
@@ -29,9 +29,9 @@ return {
     )
     
     -- Marks navigation
-    vim.keymap.set("n", "<leader>p", function() harpoon:list():prev() end, { desc = "[P]revious mark" })
+    vim.keymap.set("n", "<leader>p", function() harpoon:list():prev() end, { desc = "[p]revious mark" })
     vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-    vim.keymap.set("n", "<leader>n", function() harpoon:list():next() end, { desc = "[N]ext mark" })
+    vim.keymap.set("n", "<leader>n", function() harpoon:list():next() end, { desc = "[n]ext mark" })
     vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
     vim.keymap.set("n", "<leader>ht",
       function()
@@ -62,7 +62,7 @@ return {
     end
 
     vim.keymap.set("n", "<leader>sm", function() toggle_telescope(harpoon:list()) end,
-    { desc = "[S]earch [M]arks Telescope" })
+    { desc = "[s]earch [m]arks Telescope" })
 
   end,
 }

@@ -42,47 +42,43 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-      { '<leader>d', group = '[D]ocument' },
+      { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
+      { '<leader>d', group = '[d]ocument' },
 
       -- Evaluate
-      { '<leader>e', group = '[E]valuate' },
+      { '<leader>e', group = '[e]valuate' },
 
       -- Git
-      { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
+      { '<leader>g', group = '[g]it', mode = { 'n', 'v' } },
       -- Git Config
       { '<leader>g?', group = '[?] Config', mode = { 'n', 'v' } },
       -- Git Config Global
-      { '<leader>g?g', group = '[G]lobal', mode = { 'n', 'v' } },
+      { '<leader>g?g', group = '[g]lobal', mode = { 'n', 'v' } },
       -- Git Config Local
-      { '<leader>g?l', group = '[L]ocal', mode = { 'n', 'v' } },
-      -- Git Branch
-      { '<leader>gb', group = '[B]ranch', mode = { 'n', 'v' } },
+      { '<leader>g?l', group = '[l]ocal', mode = { 'n', 'v' } },
       -- Git Diff
-      { '<leader>gd', group = '[D]iff', mode = { 'n', 'v' } },
+      { '<leader>gd', group = '[d]iff', mode = { 'n', 'v' } },
       -- Git Fetch
-      { '<leader>gf', group = '[F]etch', mode = { 'n', 'v' } },
-      -- Git Pull/Push
-      { '<leader>gp', group = '[P]ull/[P]ush', mode = { 'n', 'v' } },
+      { '<leader>gf', group = '[f]etch', mode = { 'n', 'v' } },
       -- Git List
-      { '<leader>gl', group = '[L]ist', mode = { 'n', 'v' } },
+      { '<leader>gl', group = '[l]ist', mode = { 'n', 'v' } },
       -- Git List Branch
-      { '<leader>glb', group = '[B]ranch', mode = { 'n', 'v' } },
+      { '<leader>glb', group = '[b]ranch', mode = { 'n', 'v' } },
       -- Git List Config
-      { '<leader>glc', group = '[C]onfig', mode = { 'n', 'v' } },
+      { '<leader>glc', group = '[c]onfig', mode = { 'n', 'v' } },
       -- Git List Config Global
-      { '<leader>glcg', group = '[G]lobal', mode = { 'n', 'v' } },
+      { '<leader>glcg', group = '[g]lobal', mode = { 'n', 'v' } },
       -- Git List Config Local
-      { '<leader>glcl', group = '[L]ocal', mode = { 'n', 'v' } },
+      { '<leader>glcl', group = '[l]ocal', mode = { 'n', 'v' } },
 
 
       -- Harpoon
-      { '<leader>h', group = '[H]arpoon' },
+      { '<leader>h', group = '[h]arpoon' },
 
-      { '<leader>r', group = '[R]ename' },
-      { '<leader>s', group = '[S]earch' },
-      { '<leader>w', group = '[W]orkspace' },
-      { '<leader>t', group = '[T]oggle' },
+      { '<leader>r', group = '[r]ename' },
+      { '<leader>s', group = '[s]earch' },
+      { '<leader>w', group = '[w]orkspace' },
+      { '<leader>t', group = '[t]oggle' },
     },
   },
 }
