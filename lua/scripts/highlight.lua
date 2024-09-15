@@ -17,7 +17,7 @@ local function highlightGradient()
   end
 end
 
-local status_bar = require('scripts.status-column')
+--local status_bar = require('scripts.status-column')
 
 -- Highlight the current line number and 4 above and below with gradient colors
 vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {

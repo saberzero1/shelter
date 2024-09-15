@@ -6,7 +6,7 @@ require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
 
-vim.o.statuscolumn = "%!v:lua.require('scripts.status-column').status_bar()"
+--vim.o.statuscolumn = "%!v:lua.require('scripts.status-column').status_bar()"
 require 'scripts.highlight'
 
 local alpha = function()

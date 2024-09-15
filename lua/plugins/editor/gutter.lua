@@ -1,4 +1,4 @@
---@type LazySpec
+---@type LazySpec
 return {
   'nvim-lualine/lualine.nvim',
   lazy = false,

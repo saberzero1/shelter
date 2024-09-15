@@ -1,15 +1,30 @@
 local statuscolumn = {}
 
+local colors = require 'tokyonight.colors'.setup() -- pass in any of the config options as explained above
+
+local gitsigns = require 'gitsigns'
+-- Get hl values from gitsigns
+vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = colors.git.add })
+vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = colors.git.change })
+vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = colors.git.delete })
+vim.api.nvim_set_hl(0, 'GitSignsChangeDelete', { fg = colors.git.change })
+vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { fg = colors.git.delete })
+
 statuscolumn.status_bar = function ()
   local text = ""
 
   text = table.concat({
+    --statuscolumn.gitsigns(),
     statuscolumn.folds(),
     statuscolumn.number({ mode = "hybrid" }),
     statuscolumn.border(),
   })
 
   return text
+end
+
+statuscolumn.gitsigns = function()
+  return '%=%s'
 end
 
 statuscolumn.border = function ()
