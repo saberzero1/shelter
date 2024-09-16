@@ -1,13 +1,13 @@
 ---@type LazySpec
 return {
-  "rcarriga/nvim-notify",
+  'rcarriga/nvim-notify',
   keys = {
     {
-      "<leader>un",
+      '<leader>un',
       function()
-        require("notify").dismiss({ silent = true, pending = true })
+        require 'notify'.dismiss({ silent = true, pending = true })
       end,
-      desc = "Dismiss All Notifications",
+      desc = 'Dismiss All Notifications',
     },
   },
   opts = {

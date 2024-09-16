@@ -1,11 +1,12 @@
 ---@type LazySpec
 return {
   'petertriho/nvim-scrollbar',
+  dependencies = { 'folke/tokyonight.nvim' },
   event = "BufReadPre",
   config = function()
-    local colors = require("tokyonight.colors").setup()
+    local colors = require 'tokyonight.colors'.setup()
 
-    require("scrollbar").setup({
+    require 'scrollbar'.setup({
       handle = {
         color = colors.bg_highlight,
       },

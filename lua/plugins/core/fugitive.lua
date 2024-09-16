@@ -85,8 +85,8 @@ local parsed2 = keymap.parse(list2)]]--
 return {
   'tpope/vim-fugitive',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
   },
   keys = {
     -- Git Branch operations

@@ -1,7 +1,7 @@
-local json = require("scripts.codestats.plugin.dependencies.json")
-local socket = require("socket")
-local ltn12 = require("ltn12")
-local url = require("socket.url")
+local json = require 'scripts.codestats.plugin.dependencies.json'
+local socket = require 'socket'
+local ltn12 = require 'ltn12'
+local url = require 'socket.url'
 
 local INTERVAL = 10                -- interval at which stats are sent
 local SLEEP_INTERVAL = 0.1         -- sleep interval for timeslicing

@@ -21,17 +21,17 @@ https://github.com/supermaven-inc/supermaven-nvim/issues/29#issuecomment-2119386
 
 ---@type LazySpec
 return {
-    "supermaven-inc/supermaven-nvim",
+    'supermaven-inc/supermaven-nvim',
     keys = {
       { "<leader>TS", desc = 'Start Supermaven' },
     },
     opts = {
       color = {
-        suggestion_color = "#ffffff",
+        suggestion_color = '#ffffff',
         cterm = 244,
       },
-      ignore_filtetypes = { "git", "node_modules", "dist", "build", "target", "vendor", '.env', '.env.local' },
-      log_level = "info", -- set to "off" to disable logging completely
+      ignore_filtetypes = { 'git', 'node_modules', 'dist', 'build', 'target', 'vendor', '.env', '.env.local' },
+      log_level = 'info', -- set to "off" to disable logging completely
       disable_inline_completion = false, -- disables inline completion for use with cmp
       disable_keymaps = false, -- disables built in keymaps for more manual control
       condition = function()

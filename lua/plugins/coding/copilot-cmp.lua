@@ -1,8 +1,8 @@
 ---@type LazySpec
 return {
-  "zbirenbaum/copilot-cmp",
-  dependencies = { "zbirenbaum/copilot.lua" },
+  'zbirenbaum/copilot-cmp',
+  dependencies = { 'zbirenbaum/copilot.lua' },
   config = function ()
-    require("copilot_cmp").setup()
+    require 'copilot_cmp'.setup()
   end
 }

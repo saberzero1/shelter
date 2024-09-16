@@ -3,7 +3,7 @@ return {
   'sindrets/diffview.nvim',
   event = 'VimEnter',
   config = function()
-    require('diffview').setup()
+    require 'diffview'.setup()
   end,
   keys = {
     { '<leader>gdo' , function() vim.api.nvim_command('DiffviewOpen') end, desc = '[o]pen' },

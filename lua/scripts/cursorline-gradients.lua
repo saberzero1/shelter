@@ -9,8 +9,8 @@ function M.get_hlgroup(name, fallback)
     local group = vim.api.nvim_get_hl(0, { name = name })
 
     local hl = {
-      fg = group.fg == nil and "NONE" or M.parse_hex(group.fg),
-      bg = group.bg == nil and "NONE" or M.parse_hex(group.bg),
+      fg = group.fg == nil and 'NONE' or M.parse_hex(group.fg),
+      bg = group.bg == nil and 'NONE' or M.parse_hex(group.bg),
     }
 
     return hl
@@ -25,16 +25,16 @@ function M.delete_buffer(buf)
     buf = vim.api.nvim_get_current_buf()
   end
 
-  vim.api.nvim_command("bwipeout " .. buf)
+  vim.api.nvim_command('bwipeout ' .. buf)
 end
 
 --- Switch to the previous buffer
 function M.switch_to_previous_buffer()
   local ok, _ = pcall(function()
-    vim.cmd("buffer #")
+    vim.cmd('buffer #')
   end)
   if not ok then
-    vim.notify("No other buffer to switch to!", 3, { title = "Warning" })
+    vim.notify('No other buffer to switch to!', 3, { title = 'Warning' })
   end
 end
 
@@ -43,7 +43,7 @@ end
 function M.get_buffer_count()
   local count = 0
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.fn.bufname(buf) ~= "" then
+    if vim.fn.bufname(buf) ~= '' then
       count = count + 1
     end
   end
@@ -53,7 +53,7 @@ end
 --- Parse a given integer color to a hex value.
 --- @param int_color number
 function M.parse_hex(int_color)
-  return string.format("#%x", int_color)
+  return string.format('#%x', int_color)
 end
 
 return M

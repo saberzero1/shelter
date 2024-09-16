@@ -1,32 +1,32 @@
 -- Pull in the wezterm API
-local wezterm = require("wezterm")
+local wezterm = require 'wezterm'
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
-config.front_end = "WebGpu"
+config.front_end = 'WebGpu'
 config.max_fps = 120
 
 config.color_scheme = 'tokyonight_storm'
 
 -- For example, changing the color scheme:
 config.colors = {
-  foreground = "#CBE0F0",
-  -- background = "#011423",
-  -- background = "#000000",
-  background = "#1A1B27", -- tokyonight
-  -- background = "#191724", -- rose-pine
-  -- background = "#141414", -- gray
-  cursor_bg = "#47FF9C",
-  cursor_border = "#47FF9C",
-  cursor_fg = "#011423",
-  selection_bg = "#706b4e",
-  selection_fg = "#f3d9c4",
-  ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#24EAF7", "#24EAF7" },
-  brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
+  foreground = '#CBE0F0',
+  -- background = '#011423',
+  -- background = '#000000',
+  background = '#1A1B27', -- tokyonight
+  -- background = '#191724', -- rose-pine
+  -- background = '#141414', -- gray
+  cursor_bg = '#47FF9C',
+  cursor_border = '#47FF9C',
+  cursor_fg = '#011423',
+  selection_bg = '#706b4e',
+  selection_fg = '#f3d9c4',
+  ansi = { '#214969', '#E52E2E', '#44FFB1', '#FFE073', '#0FC5ED', '#a277ff', '#24EAF7', '#24EAF7' },
+  brights = { '#214969', '#E52E2E', '#44FFB1', '#FFE073', '#A277FF', '#a277ff', '#24EAF7', '#24EAF7' },
   tab_bar = {
-    background = "rgba(0,0,0,0)",
+    background = 'rgba(0,0,0,0)',
     active_tab = {
       -- The color of the background area for the tab
       bg_color = 'rgba(0,0,0,0)',
@@ -41,7 +41,7 @@ config.colors = {
   },
 }
 
--- config.font = wezterm.font("MesloLGS Nerd Font Mono", { weight = 'Medium' })
+-- config.font = wezterm.font('MesloLGS Nerd Font Mono', { weight = 'Medium' })
 -- config.freetype_load_flags = 'NO_HINTING'
 config.font = wezterm.font('Fira Code', { weight = 'Regular' })
 config.font_size = 16.0
@@ -71,7 +71,7 @@ config.window_frame = {
   border_top_color = '#282828',
 }
 
-config.window_decorations = "RESIZE"
+config.window_decorations = 'RESIZE'
 config.window_background_opacity = 0.93
 config.macos_window_background_blur = 50
 

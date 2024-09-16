@@ -45,7 +45,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
-    require('telescope').setup {
+    require 'telescope'.setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
@@ -57,14 +57,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- pickers = {}
       extensions = {
         ['ui-select'] = {
-          require('telescope.themes').get_dropdown(),
+          require 'telescope.themes'.get_dropdown(),
         },
       },
     }
 
     -- Enable Telescope extensions if they are installed
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require 'telescope'.load_extension, 'fzf')
+    pcall(require 'telescope'.load_extension, 'ui-select')
 
 
     local key = function(mode, sequence, action, params)
@@ -88,7 +88,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Slightly advanced example of overriding default behavior and theme
     key('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      builtin.current_buffer_fuzzy_find(require 'telescope.themes'.get_dropdown {
         winblend = 10,
         previewer = false,
       })

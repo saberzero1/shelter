@@ -1,4 +1,4 @@
-local _time = require("os")
+local _time = require 'os'
 
 local ZERO = 0
 

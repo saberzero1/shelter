@@ -1,4 +1,4 @@
-local CodeStats = require('scripts.codestats.plugin.codestats')
+local CodeStats = require 'scripts.codestats.plugin.codestats'
 
 M = {}
 

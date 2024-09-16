@@ -2,12 +2,9 @@
 return {
   'nvim-lualine/lualine.nvim',
   lazy = false,
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-    --'code-stats/code-stats-vim',
-  },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = function()
-    local utils = require("scripts.cursorline-gradients")
+    local utils = require 'scripts.cursorline-gradients'
 
     local code_stats = function()
       --local init_code_stats = require('scripts.codestats.init_codestats')
@@ -88,12 +85,12 @@ return {
   end,
 }]]--
     local copilot_colors = {
-      [""] = utils.get_hlgroup("Comment"),
-      ["Active"] = utils.get_hlgroup("String"),
-      ["Disabled"] = utils.get_hlgroup("Conceal"),
-      ["Normal"] = utils.get_hlgroup("Comment"),
-      ["Warning"] = utils.get_hlgroup("DiagnosticError"),
-      ["InProgress"] = utils.get_hlgroup("DiagnosticWarn"),
+      [''] = utils.get_hlgroup('Comment'),
+      ['Active'] = utils.get_hlgroup('String'),
+      ['Disabled'] = utils.get_hlgroup('Conceal'),
+      ['Normal'] = utils.get_hlgroup('Comment'),
+      ['Warning'] = utils.get_hlgroup('DiagnosticError'),
+      ['InProgress'] = utils.get_hlgroup('DiagnosticWarn'),
     }
     --require('lualine').setup {
     return {
@@ -105,7 +102,7 @@ return {
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
-          statusline = { "dashboard", "alpha" },
+          statusline = { 'dashboard', 'alpha' },
           winbar = {},
         },
         ignore_focus = {},
@@ -129,22 +126,22 @@ return {
             symbols = {
               status = {
                 icons = {
-                  enabled = " ",
-                  sleep = " ",   -- auto-trigger disabled
-                  disabled = " ",
-                  warning = " ",
-                  unknown = " "
+                  enabled = ' ',
+                  sleep = ' ',   -- auto-trigger disabled
+                  disabled = ' ',
+                  warning = ' ',
+                  unknown = ' '
                 },
                 hl = {
-                  enabled = copilot_colors["Active"],
-                  sleep = copilot_colors["Normal"],
-                  disabled = copilot_colors["Disabled"],
-                  warning = copilot_colors["Warning"],
-                  unknown = copilot_colors["InProgress"]
+                  enabled = copilot_colors['Active'],
+                  sleep = copilot_colors['Normal'],
+                  disabled = copilot_colors['Disabled'],
+                  warning = copilot_colors['Warning'],
+                  unknown = copilot_colors['InProgress']
                 }
               },
-              spinners = require("copilot-lualine.spinners").dots,
-              spinner_color = copilot_colors["InProgress"],
+              spinners = require 'copilot-lualine.spinners'.dots,
+              spinner_color = copilot_colors['InProgress'],
             },
             show_colors = true,
             show_loading = true
@@ -171,7 +168,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
+      extensions = { 'lazy', 'toggleterm', 'mason', 'neo-tree', 'trouble' },
     }
   end,
 }

@@ -56,7 +56,7 @@ key('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 end]]--
 
 -- Allow clipboard copy paste in neovim
-key_nvim("", "<C-v>", "+p<CR>", { noremap = true, silent = true })
-key_nvim("!", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-key_nvim("t", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-key_nvim("v", "<C-v>", "<C-R>+", { noremap = true, silent = true })
+key_nvim('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
+key_nvim('!', '<C-v>', '<C-R>+', { noremap = true, silent = true })
+key_nvim('t', '<C-v>', '<C-R>+', { noremap = true, silent = true })
+key_nvim('v', '<C-v>', '<C-R>+', { noremap = true, silent = true })

@@ -108,7 +108,7 @@ return { -- Autocompletion
           group_index = 0,
         },
         -- Copilot Source
-        { name = "copilot" },
+        { name = 'copilot' },
         -- Other Sources
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
