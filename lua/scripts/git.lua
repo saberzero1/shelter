@@ -30,6 +30,48 @@ print = function(...)
 end
 notify.setup()
 
+-- Execute a command asynchronously
+-- https://github.com/nvim-lua/plenary.nvim/blob/986ad71ae930c7d96e812734540511b4ca838aa2/lua/plenary/job.lua#L6-L20
+-- https://www.reddit.com/r/neovim/comments/wb600w/comment/ii4uakq/
+local job = require 'plenary.job'
+local job_data = {}
+local exec_aync = function(command, args, on_start, on_stdout, on_exit)
+  job:new({
+    command = command,
+    args = args,
+    on_start = function()
+      print(on_start)
+    end,
+    on_stdout = function(_, line)
+      table.insert(job_data, line)
+    end,
+    on_exit = function()
+      print(on_exit)
+    end,
+  }):start()
+end
+
+--[[
+local job = require 'plenary.job'
+-- async
+local data = {}
+job:new({
+	command = 'ls',
+	args = { '-a' },
+	on_stdout = function(_, line)
+		table.insert(data, line)
+	end,
+	on_exit = function()
+		print('done')
+	end,
+}):start()
+-- sync
+local ls = job:new({ command = "ls", args = { "-a" } }):sync()
+for i, _ in ipairs(ls) do
+	assert(ls[i] == data[i])
+end
+]]--
+
 --- Call Git command
 ---@param command string Git command to call
 ---@param options? string Options to pass to the Git command
@@ -45,25 +87,23 @@ git.call = function(command, options, input, question, verbose)
   assert(question == nil or type(question) == 'string', 'Question must be a string')
   assert(verbose == nil or type(verbose) == 'boolean', 'Verbose must be a boolean')
   local verbose = verbose or true
-  local git_command = 'G ' .. command
+  local git_command = 'Git ' .. command
   if options ~= nil then
     git_command = git_command .. ' ' .. options
-  end
-  if verbose then
-    print('Running git ' .. git_command:sub(3))
   end
   if input then
     if question ~= nil then
       input = vim.fn.input(question .. ': ')
     else
-      input = vim.fn.input('Enter input for git ' .. git_command:sub(3) .. ': ')
+      input = vim.fn.input('Enter input for git ' .. git_command:sub(5) .. ': ')
     end
-    vim.api.nvim_command(git_command .. ' ' .. input)
+    exec_aync('Git', { command, options, input }, 'Started running git ' .. git_command:sub(5), function(_, line)
+      print(line)
+    end, 'Finished running git ' .. git_command:sub(5))
   else
-    vim.api.nvim_command(git_command)
-  end
-  if verbose then
-    print('Finished running git ' .. git_command:sub(3))
+    exec_aync('Git', { command, options }, 'Started running git ' .. git_command:sub(5), function(_, line)
+      print(line)
+    end, 'Finished running git ' .. git_command:sub(5))
   end
 end
 
@@ -113,10 +153,15 @@ end
 git.config.set = function(option, value, scope)
   scope = opt(scope, '--global')
   if value == nil or value == '' then
-    vim.fn.input('Set ' .. scope:sub(3) .. ' value for ' .. option ..': ')
+    value = vim.fn.input('Set ' .. scope:sub(3) .. ' value for ' .. option ..': ')
   end
-  vim.api.nvim_command('G config ' .. scope .. ' ' .. option .. ' "' .. value .. '"')
-  print('Set ' .. scope:sub(3) .. ' ' .. option .. ' to "' .. value .. '"')
+  if value == nil or value == '' then
+    print('Value "' .. tostring(value) .. '" is not valid for ' .. scope:sub(3) .. ' ' .. option)
+    return
+  end
+  exec_aync('Git', { 'config', scope, option, value }, 'Running git ' .. scope .. ' ' .. option .. ' ' .. value, function(_, line)
+    print(line)
+  end, 'Set ' .. scope:sub(3) .. ' ' .. option .. ' to "' .. value .. '"')
 end
 
 --- Get the current value of a config option
@@ -126,9 +171,9 @@ git.config.get = function(value, scope)
   assert(value == nil or type(value) == 'string', 'Value must be a string')
   scope = opt(scope, '--global')
   if value == nil or value == '' then
-    vim.api.nvim_command('G config ' .. scope .. ' --list')
+    vim.api.nvim_command('Git config ' .. scope .. ' --list')
   else
-    local current = vim.api.nvim_exec('G config ' .. scope .. ' ' .. value, true)
+    local current = vim.api.nvim_exec('Git config ' .. scope .. ' ' .. value, true)
     if current == nil or current == '' then
       print('Option ' .. value .. ' not set in scope ' .. scope:sub(3))
     else

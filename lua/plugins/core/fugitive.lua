@@ -94,12 +94,12 @@ return {
     { '<leader>gc', git.checkout, desc = '[c]heckout' },
     
     -- Git Config
-    { '<leader>g?ge', function() git.config.set('user.email') end, desc = '[e]mail' },
+    { '<leader>g?ge', function() git.config.set('user.email', nil) end, desc = '[e]mail' },
     { '<leader>g?gl', function() git.config.get() end, desc = '[l]ist' },
-    { '<leader>g?gn', function() git.config.set('user.name') end, desc = '[n]ame' },
-    { '<leader>g?le', function() git.config.set('user.email', 'local') end, desc = '[e]mail' },
+    { '<leader>g?gn', function() git.config.set('user.name', nil) end, desc = '[n]ame' },
+    { '<leader>g?le', function() git.config.set('user.email', nil, 'local') end, desc = '[e]mail' },
     { '<leader>g?ll', function() git.config.get(nil, 'local') end, desc = '[l]ist' },
-    { '<leader>g?ln', function() git.config.set('user.name', 'local') end, desc = '[n]ame' },
+    { '<leader>g?ln', function() git.config.set('user.name', nil, 'local') end, desc = '[n]ame' },
     
     -- Git Pull/Push
     { '<leader>gP', git.push, desc = '[P]ush' },

@@ -17,7 +17,8 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   group = 'keychecker',
   pattern = '*',
   callback = function()
-    current_file_in_git = tonumber(vim.system({'git', 'rev-parse', '--is-inside-work-tree'}).code) == 0
+    local result = pcall(vim.system({'git', 'rev-parse', '--is-inside-work-tree'}))
+    current_file_in_git = (result == 'false' or result == 'true')
   end,
 })
 
