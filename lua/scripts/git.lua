@@ -1,5 +1,15 @@
 local builtin = require 'telescope.builtin'
 
+local assert = require 'scripts.assertions'
+
+--- Concatenate a list of strings
+---@param strings table List of strings to concatenate
+---@return string Concatenated strings
+local concat = function(strings)
+  assert:is_table(strings)
+  return table.concat(strings, ' ')
+end
+
 local git = {
   call = {},
   branch = {},
@@ -72,29 +82,18 @@ for i, _ in ipairs(ls) do
 end
 ]]--
 
---- Concat table of strings
----@param strings table Table of strings
----@return string Concatenated strings
-local function concat(strings)
-  assert(type(strings) == 'table', 'Table must be a table')
-  return table.concat(strings, ' ')
-end
-
 --- Call Git command
 ---@param command string Git command to call
 ---@param options? string Options to pass to the Git command
 ---@param input? boolean Ask for input
 ---@param question? string Question to ask the user
----@param verbose? string Notify the user
 git.call = function(command, options, input, question, verbose)
-  assert(type(command) == 'string', 'Command must be a string')
-  assert(command ~= '', 'Command must not be empty')
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
-  assert(input == nil or type(input) == 'boolean', 'Input must be a boolean')
-  assert((input == true) == (question ~= nil), 'Input must be true if question is provided')
-  assert(question == nil or type(question) == 'string', 'Question must be a string')
-  assert(verbose == nil or type(verbose) == 'boolean', 'Verbose must be a boolean')
-  local verbose = verbose or true
+  input = input or false
+  assert:is_string(command, false)
+  assert:not_empty(command)
+  assert:is_string(options)
+  assert:is_boolean(input)
+  assert:is_string(question, not input)
   options = options or ''
   local git_command = concat({ 'Git', command, options })
   if input then
@@ -115,11 +114,12 @@ end
 
 
 --- Format options for Git commands
----@param options? string Options to format
+---@param options string Options to format
 ---@param default? string Default options
 ---@return string Formatted options
 local function opt(options, default)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
+  assert:is_string(default)
   default = default or ''
   if options == nil or options == '' then
     return default
@@ -131,9 +131,9 @@ end
 --- Branch operations
 ---@param options? string Options to pass to the Git command
 git.branch = function(options)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
   if options == nil or options == '' then
-    assert(builtin ~= nil, 'Telescope is not loaded')
+    assert:not_empty(builtin)
     builtin.git_branches()
   else
     git.call('branch', options)
@@ -143,9 +143,9 @@ end
 --- Checkout operations
 ---@param options? string Options to pass to the Git command
 git.checkout = function(options)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
   if options == nil then
-    assert(builtin ~= nil, 'Telescope is not loaded')
+    assert:not_empty(builtin)
     builtin.git_branches()
   else
     git.call('checkout', options)
@@ -174,7 +174,8 @@ end
 ---@param value? string Config option to get
 ---@param scope? string Scope of the config option (global, local)
 git.config.get = function(value, scope)
-  assert(value == nil or type(value) == 'string', 'Value must be a string')
+  assert:is_string(value, false)
+  assert:is_string(scope)
   scope = opt(scope, '--global')
   if value == nil or value == '' then
     vim.api.nvim_command(concat({ 'Git config', scope, '--list' }))
@@ -191,27 +192,27 @@ end
 --- Fetch operations
 ---@param options? string Options to pass to the Git command
 git.fetch = function(options)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
   git.call('fetch', opt(options))
 end
 
 --- Grep (ls-files) operations
 git.grep = function()
-  assert(builtin ~= nil, 'Telescope is not loaded')
+  assert:not_empty(builtin)
   builtin.git_files()
 end
 
 --- Init operations
 ---@param options? string Options to pass to the Git Init command
 git.init = function(options)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
   git.call('init', opt(options))
 end
 
 --- Pull operations
 ---@param options? string Options to pass to the Git Pull command
 git.pull = function(options)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
   git.fetch()
   git.call('pull', opt(options))
 end
@@ -219,20 +220,20 @@ end
 --- Push operations
 ---@param options? string Options to pass to the Git Push command
 git.push = function(options)
-  assert(options == nil or type(options) == 'string', 'Options must be a string')
+  assert:is_string(options)
   git.fetch()
   git.call('push', opt(options))
 end
 
 --- Status operations
 git.status = function()
-  assert(builtin ~= nil, 'Telescope is not loaded')
+  assert:not_empty(builtin)
   builtin.git_status()
 end
 
 --- Stash operations
 git.stash = function()
-  assert(builtin ~= nil, 'Telescope is not loaded')
+  assert:not_empty(builtin)
   builtin.git_stash()
 end
 
