@@ -95,18 +95,18 @@ git.call = function(command, options, input, question, verbose)
   assert:is_boolean(input)
   assert:is_string(question, not input)
   options = options or ''
-  local git_command = concat({ 'Git', command, options })
+  local git_command = concat({ 'git', command, options })
   if input then
     if question ~= nil then
       input = vim.fn.input(concat({question, ': ' }))
     else
       input = vim.fn.input(concat({ 'Enter input for git', git_command:sub(5), ': ' }))
     end
-    exec_aync('Git', { command, options, input }, concat({ 'Started running git', git_command:sub(5) }), function(_, line)
+    exec_aync('git', { command, options, input }, concat({ 'Started running', git_command }), function(_, line)
       print(line)
     end, concat({ 'Finished running git', git_command:sub(5) }))
   else
-    exec_aync('Git', { command, options }, concat({ 'Started running git', git_command:sub(5) }), function(_, line)
+    exec_aync('git', { command, options }, concat({ 'Started running', git_command }), function(_, line)
       print(line)
     end, concat({ 'Finished running git', git_command:sub(5) }))
   end
@@ -165,7 +165,7 @@ git.config.set = function(option, value, scope)
     print(concat({ 'Value', '"' .. tostring(value) .. '"', ' is not valid for', scope:sub(3), option }))
     return
   end
-  exec_aync('Git', { 'config', scope, option, value }, concat({ 'Running git', scope, option, value }), function(_, line)
+  exec_aync('git', { 'config', scope, option, value }, concat({ 'Running git', scope, option, value }), function(_, line)
     print(line)
   end, concat({ 'Set', scope:sub(3), option, 'to', '"' .. value .. '"' }))
 end
