@@ -72,6 +72,14 @@ for i, _ in ipairs(ls) do
 end
 ]]--
 
+--- Concat table of strings
+---@param strings table Table of strings
+---@return string Concatenated strings
+local function concat(strings)
+  assert(type(strings) == 'table', 'Table must be a table')
+  return table.concat(strings, ' ')
+end
+
 --- Call Git command
 ---@param command string Git command to call
 ---@param options? string Options to pass to the Git command
@@ -87,23 +95,21 @@ git.call = function(command, options, input, question, verbose)
   assert(question == nil or type(question) == 'string', 'Question must be a string')
   assert(verbose == nil or type(verbose) == 'boolean', 'Verbose must be a boolean')
   local verbose = verbose or true
-  local git_command = 'Git ' .. command
-  if options ~= nil then
-    git_command = git_command .. ' ' .. options
-  end
+  options = options or ''
+  local git_command = concat({ 'Git', command, options })
   if input then
     if question ~= nil then
-      input = vim.fn.input(question .. ': ')
+      input = vim.fn.input(concat({question, ': ' }))
     else
-      input = vim.fn.input('Enter input for git ' .. git_command:sub(5) .. ': ')
+      input = vim.fn.input(concat({ 'Enter input for git', git_command:sub(5), ': ' }))
     end
-    exec_aync('Git', { command, options, input }, 'Started running git ' .. git_command:sub(5), function(_, line)
+    exec_aync('Git', { command, options, input }, concat({ 'Started running git', git_command:sub(5) }), function(_, line)
       print(line)
-    end, 'Finished running git ' .. git_command:sub(5))
+    end, concat({ 'Finished running git', git_command:sub(5) }))
   else
-    exec_aync('Git', { command, options }, 'Started running git ' .. git_command:sub(5), function(_, line)
+    exec_aync('Git', { command, options }, concat({ 'Started running git', git_command:sub(5) }), function(_, line)
       print(line)
-    end, 'Finished running git ' .. git_command:sub(5))
+    end, concat({ 'Finished running git', git_command:sub(5) }))
   end
 end
 
@@ -153,15 +159,15 @@ end
 git.config.set = function(option, value, scope)
   scope = opt(scope, '--global')
   if value == nil or value == '' then
-    value = vim.fn.input('Set ' .. scope:sub(3) .. ' value for ' .. option ..': ')
+    value = vim.fn.input(concat({ 'Set', scope:sub(3), 'value for', option, ': ' }))
   end
   if value == nil or value == '' then
-    print('Value "' .. tostring(value) .. '" is not valid for ' .. scope:sub(3) .. ' ' .. option)
+    print(concat({ 'Value', '"' .. tostring(value) .. '"', ' is not valid for', scope:sub(3), option }))
     return
   end
-  exec_aync('Git', { 'config', scope, option, value }, 'Running git ' .. scope .. ' ' .. option .. ' ' .. value, function(_, line)
+  exec_aync('Git', { 'config', scope, option, value }, concat({ 'Running git', scope, option, value }), function(_, line)
     print(line)
-  end, 'Set ' .. scope:sub(3) .. ' ' .. option .. ' to "' .. value .. '"')
+  end, concat({ 'Set', scope:sub(3), option, 'to', '"' .. value .. '"' }))
 end
 
 --- Get the current value of a config option
@@ -171,13 +177,13 @@ git.config.get = function(value, scope)
   assert(value == nil or type(value) == 'string', 'Value must be a string')
   scope = opt(scope, '--global')
   if value == nil or value == '' then
-    vim.api.nvim_command('Git config ' .. scope .. ' --list')
+    vim.api.nvim_command(concat({ 'Git config', scope, '--list' }))
   else
-    local current = vim.api.nvim_exec('Git config ' .. scope .. ' ' .. value, true)
+    local current = vim.api.nvim_exec(concat({ 'Git config', scope, value }), true)
     if current == nil or current == '' then
-      print('Option ' .. value .. ' not set in scope ' .. scope:sub(3))
+      print(concat({ 'Option', value, 'not set in scope', scope:sub(3) }))
     else
-      print('Current ' .. scope:sub(3) .. ' ' .. value .. ' is "' .. current .. '"')
+      print(concat({ 'Current', scope:sub(3), value, 'is', '"' .. current .. '"' }))
     end
   end
 end
