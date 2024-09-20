@@ -8,7 +8,7 @@ if not vim.uv.fs_stat(lazypath) then
     error('Error cloning lazy.nvim:\n' .. out)
   end
 end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 -- validate that lazy is available
 if not pcall(require, "lazy") then

@@ -36,17 +36,31 @@ local performance_settings = {
   },
 }
 
+local checker_settings = {
+  enabled = false,
+  notify = false,
+},
+
+local default_settings = {
+  lazy = false,
+  version = false, -- always use the latest git commit
+},
+
 if not vim.g.vscode then
   require('lazy').setup(plugins --[[@as LazySpec]], {
     -- Configure any other `lazy.nvim` configuration options here
     ui = ui_settings,
     performance = performance_settings,
+    checker = checker_settings,
+    default = default_settings,
   } --[[@as LazyConfig]])
 else
   require('lazy').setup(plugins --[[@as LazySpec]], {
     -- Configure any other `lazy.nvim` configuration options here
     ui = ui_settings,
     performance = performance_settings,
+    checker = checker_settings,
+    default = default_settings,
   } --[[@as LazyConfig]])
 end
 
