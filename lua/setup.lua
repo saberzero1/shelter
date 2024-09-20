@@ -47,7 +47,7 @@ local default_settings = {
 },
 
 if not vim.g.vscode then
-  require('lazy').setup(plugins --[[@as LazySpec]], {
+  require 'lazy'.setup(plugins --[[@as LazySpec]], {
     -- Configure any other `lazy.nvim` configuration options here
     ui = ui_settings,
     performance = performance_settings,
@@ -55,7 +55,7 @@ if not vim.g.vscode then
     default = default_settings,
   } --[[@as LazyConfig]])
 else
-  require('lazy').setup(plugins --[[@as LazySpec]], {
+  require 'lazy'.setup(plugins --[[@as LazySpec]], {
     -- Configure any other `lazy.nvim` configuration options here
     ui = ui_settings,
     performance = performance_settings,

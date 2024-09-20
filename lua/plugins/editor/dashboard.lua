@@ -3,7 +3,7 @@ return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = function()
-    require('dashboard').setup({
+    require 'dashboard'.setup({
       theme = 'hyper',
       config = {
         week_header = {
@@ -29,7 +29,7 @@ return {
             desc = ' Keymaps',
             group = 'Number',
             action = 'Telescope keymaps',
-            key = 'k',
+            key = 'm',
           },
         },
       },

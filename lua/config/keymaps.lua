@@ -17,7 +17,7 @@ end
 key('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-key('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+key('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -46,17 +46,17 @@ key('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 key('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 key('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-if vim.g.neovide then
+--[[if vim.g.neovide then
   key("n", "<C-s>", ":w<CR>") -- Save
   key("v", "<C-c>", '"+y') -- Copy
   key("n", "<C-v>", '"+P') -- Paste normal mode
   key("v", "<C-v>", '"+P') -- Paste visual mode
   key("c", "<C-v>", "<C-R>+") -- Paste command mode
   key("i", "<C-v>", '<ESC>l"+Pli') -- Paste insert mode
-end
+end]]--
 
 -- Allow clipboard copy paste in neovim
-key_nvim("", "<C-v>", "+p<CR>", { noremap = true, silent = true })
-key_nvim("!", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-key_nvim("t", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-key_nvim("v", "<C-v>", "<C-R>+", { noremap = true, silent = true })
+key_nvim('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
+key_nvim('!', '<C-v>', '<C-R>+', { noremap = true, silent = true })
+key_nvim('t', '<C-v>', '<C-R>+', { noremap = true, silent = true })
+key_nvim('v', '<C-v>', '<C-R>+', { noremap = true, silent = true })

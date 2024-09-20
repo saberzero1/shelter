@@ -7,6 +7,9 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- 24 bit true color support
+vim.opt.termguicolors = true
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -28,9 +31,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+--vim.schedule(function()
+--  vim.opt.clipboard = 'unnamedplus'
+--end)
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -43,7 +46,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'yes:3'
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -67,6 +70,22 @@ vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = 'both'
+vim.opt.cursorcolumn = false
+
+-- Show line at 80 characters
+vim.opt.colorcolumn = '80'
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
+
+-- light/dark mode
+vim.opt.background = 'dark'
+
+-- highlight-groups
+vim.api.nvim_set_hl(0, 'LineNr4', { bg = '#3B4261' })
+vim.api.nvim_set_hl(0, 'LineNr3', { bg = '#4d71a0' })
+vim.api.nvim_set_hl(0, 'LineNr2', { bg = '#6fc1cf' })
+vim.api.nvim_set_hl(0, 'LineNr1', { bg = '#eeffee' })
+vim.api.nvim_set_hl(0, 'LineNr0', { bg = '#FFFFFF', --bg = "NONE",
+ bold = true })
