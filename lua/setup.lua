@@ -39,12 +39,12 @@ local performance_settings = {
 local checker_settings = {
   enabled = false,
   notify = false,
-},
+}
 
 local default_settings = {
   lazy = false,
   version = false, -- always use the latest git commit
-},
+}
 
 if not vim.g.vscode then
   require 'lazy'.setup(plugins --[[@as LazySpec]], {
