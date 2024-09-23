@@ -1,3 +1,7 @@
+local enabled = false
+
+if not enabled then return {} end
+
 ---@type LazySpec
 return {
   'zbirenbaum/copilot-cmp',

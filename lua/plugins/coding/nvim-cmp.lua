@@ -34,8 +34,23 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+
+    -- Supermaven / SuperTab
+    {
+      'supermaven-inc/supermaven-nvim',
+      opts = {
+        disable_inline_completion = true, -- disables inline completion for use with cmp
+      },
+    },
   },
   config = function()
+    -- SuperTab
+    local has_words_before = function()
+      unpack = unpack or table.unpack
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
+
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
@@ -100,6 +115,33 @@ return { -- Autocompletion
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+
+        -- SuperTab
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
+            cmp.select_next_item()
+          elseif vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       },
       sources = {
         {
@@ -107,12 +149,16 @@ return { -- Autocompletion
           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
           group_index = 0,
         },
-        -- Copilot Source
-        { name = 'copilot' },
+        -- Copilot Sources
+        { name = 'supermaven' },
+        -- { name = 'copilot' },
         -- Other Sources
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+      },
+      experimental = {
+        ghost_text = false,
       },
     }
   end,
