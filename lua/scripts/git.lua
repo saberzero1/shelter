@@ -44,8 +44,7 @@ notify.setup()
 -- https://github.com/nvim-lua/plenary.nvim/blob/986ad71ae930c7d96e812734540511b4ca838aa2/lua/plenary/job.lua#L6-L20
 -- https://www.reddit.com/r/neovim/comments/wb600w/comment/ii4uakq/
 local job = require 'plenary.job'
-local job_data = {}
-local exec_aync = function(command, args, on_start, on_stdout, on_exit)
+local exec_async = function(command, args, on_start, on_exit)
   job
     :new({
       command = command,
@@ -53,14 +52,18 @@ local exec_aync = function(command, args, on_start, on_stdout, on_exit)
       on_start = function()
         print(on_start)
       end,
-      on_stdout = function(_, line)
-        table.insert(job_data, line)
-      end,
       on_exit = function()
         print(on_exit)
       end,
     })
     :start()
+end
+
+-- execute a command synchronously
+local exec_sync = function(command, args, on_start, on_exit)
+  print(on_start)
+  job:new({ command = command, args = args }):sync()
+  print(on_exit)
 end
 
 --[[
@@ -90,13 +93,15 @@ end
 ---@param options? string Options to pass to the Git command
 ---@param input? boolean Ask for input
 ---@param question? string Question to ask the user
-git.call = function(command, options, input, question, verbose)
+---@param async? boolean Run the command asynchronously
+git.call = function(command, options, input, question, async)
   input = input or false
   assert:is_string(command, false)
   assert:not_empty(command)
   assert:is_string(options)
   assert:is_boolean(input)
   assert:is_string(question, not input)
+  assert:is_boolean(async)
   options = options or ''
   local git_command = concat { 'git', command, options }
   if input then
@@ -105,13 +110,17 @@ git.call = function(command, options, input, question, verbose)
     else
       input = vim.fn.input(concat { 'Enter input for git', git_command:sub(5), ': ' })
     end
-    exec_aync('git', { command, options, input }, concat { 'Started running', git_command }, function(_, line)
-      print(line)
-    end, concat { 'Finished running git', git_command:sub(5) })
+    if async then
+      exec_async('git', { command, options, input }, concat { 'Started running', git_command }, concat { 'Finished running git', git_command:sub(5) })
+    else
+      exec_sync('git', { command, options, input }, concat { 'Started running', git_command }, concat { 'Finished running git', git_command:sub(5) })
+    end
   else
-    exec_aync('git', { command, options }, concat { 'Started running', git_command }, function(_, line)
-      print(line)
-    end, concat { 'Finished running git', git_command:sub(5) })
+    if async then
+      exec_async('git', { command, options }, concat { 'Started running', git_command }, concat { 'Finished running git', git_command:sub(5) })
+    else
+      exec_sync('git', { command, options }, concat { 'Started running', git_command }, concat { 'Finished running git', git_command:sub(5) })
+    end
   end
 end
 
@@ -178,22 +187,25 @@ git.config.set = function(option, value, scope)
     print(concat { 'Value', '"' .. tostring(value) .. '"', ' is not valid for', scope:sub(3), option })
     return
   end
-  exec_aync('git', { 'config', scope, option, value }, concat { 'Running git', scope, option, value }, function(_, line)
-    print(line)
-  end, concat { 'Set', scope:sub(3), option, 'to', '"' .. value .. '"' })
+  exec_async(
+    'git',
+    { 'config', scope, option, value },
+    concat { 'Running git', scope, option, value },
+    concat { 'Set', scope:sub(3), option, 'to', '"' .. value .. '"' }
+  )
 end
 
 --- Get the current value of a config option
 ---@param value? string Config option to get
 ---@param scope? string Scope of the config option (global, local)
 git.config.get = function(value, scope)
-  assert:is_string(value, false)
+  assert:is_string(value)
   assert:is_string(scope)
-  scope = opt(scope, 'global')
+  scope = opt(scope or '', 'global')
   if value == nil or value == '' then
     vim.api.nvim_command(concat { 'Git config', scope, '--list' })
   else
-    local current = vim.api.nvim_exec(concat { 'Git config', scope, value }, true)
+    local current = vim.api.nvim_exec2(concat { 'Git config', scope, value }, { output = true })
     if current == nil or current == '' then
       print(concat { 'Option', value, 'not set in scope', scope:sub(3) })
     else
@@ -206,7 +218,7 @@ end
 ---@param options? string Options to pass to the Git command
 git.fetch = function(options)
   assert:is_string(options)
-  git.call('fetch', opt(options))
+  git.call('fetch', opt(options or ''))
 end
 
 --- Grep (ls-files) operations
@@ -219,7 +231,7 @@ end
 ---@param options? string Options to pass to the Git Init command
 git.init = function(options)
   assert:is_string(options)
-  git.call('init', opt(options))
+  git.call('init', opt(options or ''))
 end
 
 --- Pull operations
@@ -227,7 +239,7 @@ end
 git.pull = function(options)
   assert:is_string(options)
   git.fetch()
-  git.call('pull', opt(options))
+  git.call('pull', opt(options or ''))
 end
 
 --- Push operations
@@ -235,7 +247,7 @@ end
 git.push = function(options)
   assert:is_string(options)
   git.fetch()
-  git.call('push', opt(options))
+  git.call('push', opt(options or ''))
 end
 
 --- Status operations
