@@ -27,45 +27,39 @@ if vim.g.neovide then
   vim.keymap.set({'n', 'i'}, "<C-=>", function() ResizeGuiFont(1) end, { noremap = true, silent = true, desc = "Increase Neovide scale factor" })
   vim.keymap.set({'n', 'i'}, "<C-->", function() ResizeGuiFont(-1) end, { noremap = true, silent = true, desc = "Decrease Neovide scale factor" })
   vim.keymap.set({'n', 'i'}, "<C-0>", function() ResetGuiFont() end, { noremap = true, silent = true, desc = "Reset Neovide scale factor" })
-end
 
+  -- local defaultStatusCol = vim.o.statuscolumn
 
--- local defaultStatusCol = vim.o.statuscolumn
+  -- Show relative numbers in the active window, and absolute in others
+  vim.api.nvim_create_autocmd({ "WinLeave" }, {
+    pattern = { "*" },
+    callback = function()
+      -- vim.b.statuscolumn = defaultStatusCol
+      vim.wo.cursorline = false
+      vim.wo.cursorcolumn = false
+      vim.opt.colorcolumn = ""
+    end,
+  })
 
--- Show relative numbers in the active window, and absolute in others
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-  pattern = { "*" },
-  callback = function()
-    -- vim.b.statuscolumn = defaultStatusCol
-    vim.wo.cursorline = false
-    vim.wo.cursorcolumn = false
-    vim.opt.colorcolumn = ""
-  end,
-})
+  vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, {
+    pattern = { '*' },
+    callback = function()
+      -- GRADIENT STATUS COL
+      local separator = vim.g.neovide and " │  " or " ┃ "
+      local separator = vim.g.neovide and " │  " or " "
+      local separator = " │  "
+      vim.b.statuscolumn =
+          '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+          '%#LineNr3#%{(v:relnum == 3)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+          '%#LineNr2#%{(v:relnum == 2)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+          '%#LineNr1#%{(v:relnum == 1)?v:relnum.\"' .. separator .. '\":\"\"}' ..
+          '%#LineNr0#%{(v:relnum == 0)?v:lnum.\"' .. separator .. '\":\"\"}'
+      vim.wo.cursorline = true
+      vim.wo.cursorcolumn = true
+      vim.opt.colorcolumn = '80'
+    end,
+  })
 
-vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, {
-  pattern = { '*' },
-  callback = function()
-    -- GRADIENT STATUS COL
-    local separator = vim.g.neovide and " │  " or " ┃ "
-    local separator = vim.g.neovide and " │  " or " "
-    local separator = " │  "
-    vim.b.statuscolumn =
-         '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-         '%#LineNr3#%{(v:relnum == 3)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-         '%#LineNr2#%{(v:relnum == 2)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-         '%#LineNr1#%{(v:relnum == 1)?v:relnum.\"' .. separator .. '\":\"\"}' ..
-         '%#LineNr0#%{(v:relnum == 0)?v:lnum.\"' .. separator .. '\":\"\"}'
-    vim.wo.cursorline = true
-    vim.wo.cursorcolumn = true
-    vim.opt.colorcolumn = '80'
-  end,
-})
-
-
-
--- NEOVIDE ONLY CONFIG
-if vim.g.neovide then
   local default_path = vim.fn.expand('~/')
   vim.api.nvim_set_current_dir(default_path)
   -- Put anything you want to happen only in Neovide here
@@ -135,3 +129,5 @@ end
 
 vim.keymap.set({ 'n', 'i', 'v' }, '<M-up>', 'ddkP', { desc = 'Move line UP' })
 vim.keymap.set({ 'n', 'i', 'v' }, '<M-down>', 'ddp', { desc = 'Move line DOWN' })
+
+return {}

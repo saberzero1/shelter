@@ -10,5 +10,6 @@ else
     { import = 'plugins.editor' },
     { import = 'plugins.util' },
     { import = 'plugins.skill-issues' },
+    { import = 'plugins.integration' },
   }
 end
