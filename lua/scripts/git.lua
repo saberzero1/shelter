@@ -103,6 +103,7 @@ git.call = function(command, options, input, question, async)
   assert:is_string(question, not input)
   assert:is_boolean(async)
   options = options or ''
+  async = async or false
   local git_command = concat { 'git', command, options }
   if input then
     if question ~= nil then
@@ -146,7 +147,7 @@ end
 ---@param options? string Options to pass to the Git command
 git.add = function(options)
   assert:is_string(options)
-  git.call('add', options or '.')
+  git.call('add', options or '.', nil, nil, true)
 end
 
 --- Branch operations
@@ -157,7 +158,7 @@ git.branch = function(options)
     assert:not_empty(builtin)
     builtin.git_branches()
   else
-    git.call('branch', options)
+    git.call('branch', options, nil, nil, true)
   end
 end
 
@@ -169,7 +170,7 @@ git.checkout = function(options)
     assert:not_empty(builtin)
     builtin.git_branches()
   else
-    git.call('checkout', options)
+    git.call('checkout', options, nil, nil, true)
   end
 end
 
@@ -218,7 +219,7 @@ end
 ---@param options? string Options to pass to the Git command
 git.fetch = function(options)
   assert:is_string(options)
-  git.call('fetch', opt(options or ''))
+  git.call('fetch', opt(options or ''), nil, nil, true)
 end
 
 --- Grep (ls-files) operations
@@ -231,7 +232,7 @@ end
 ---@param options? string Options to pass to the Git Init command
 git.init = function(options)
   assert:is_string(options)
-  git.call('init', opt(options or ''))
+  git.call('init', opt(options or ''), nil, nil, true)
 end
 
 --- Pull operations
@@ -239,7 +240,7 @@ end
 git.pull = function(options)
   assert:is_string(options)
   git.fetch()
-  git.call('pull', opt(options or ''))
+  git.call('pull', opt(options or ''), nil, nil, true)
 end
 
 --- Push operations
@@ -247,7 +248,7 @@ end
 git.push = function(options)
   assert:is_string(options)
   git.fetch()
-  git.call('push', opt(options or ''))
+  git.call('push', opt(options or ''), nil, nil, true)
 end
 
 --- Status operations
