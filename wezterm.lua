@@ -1,6 +1,9 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
+-- Actions shortcut
+local act = wezterm.action
+
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -41,6 +44,17 @@ config.colors = {
   },
 }
 
+config.background = {
+  {
+    source = {
+      Color = 'rgb(26, 27, 39, 0.93)',-- #1A1B27
+    },
+    height = '100%',
+    width = '100%',
+    --opacity = 0.93,
+  },
+}
+
 -- config.font = wezterm.font('MesloLGS Nerd Font Mono', { weight = 'Medium' })
 -- config.freetype_load_flags = 'NO_HINTING'
 config.font = wezterm.font('Fira Code', { weight = 'Regular' })
@@ -50,8 +64,8 @@ config.cell_width = 1
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
-config.hide_tab_bar_if_only_one_tab = true
-config.show_new_tab_button_in_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = false
+config.show_new_tab_button_in_tab_bar = true
 
 config.window_padding = {
   left = 8,
@@ -72,15 +86,57 @@ config.window_frame = {
 }
 
 config.window_decorations = 'RESIZE'
-config.window_background_opacity = 0.93
+--config.window_background_opacity = 0.93
 config.macos_window_background_blur = 50
 
+-- Actions
+wezterm.on('update-right-status', function(window, pane)
+  window:set_right_status(window:active_workspace())
+end)
+
 config.keys = {
+  -- Toggle full screen
   {
     key = 'n',
     mods = 'SHIFT|CTRL',
-    action = wezterm.action.ToggleFullScreen,
+    action = act.ToggleFullScreen,
   },
+  -- Create new tab
+  {
+    key = 't',
+    mods = 'SHIFT|ALT',
+    action = act.SpawnTab 'CurrentPaneDomain',
+  },
+  -- Close current tab
+  {
+    key = 'q',
+    mods = 'SHIFT|ALT',
+    action = act.CloseCurrentTab { confirm = true },
+  },
+  -- Move through tabs
+  {
+    key = '[',
+    mods = 'ALT',
+    action = act.ActivateTabRelative(-1)
+  },
+  {
+    key = ']',
+    mods = 'ALT',
+    action = act.ActivateTabRelative(1)
+  },
+  -- Switch tabs around
+  {
+    key = '{',
+    mods = 'SHIFT|ALT',
+    action = act.MoveTabRelative(-1)
+  },
+  {
+    key = '}',
+    mods = 'SHIFT|ALT',
+    action = act.MoveTabRelative(1)
+  },
+  -- TODO: splits
+  -- https://wezfurlong.org/wezterm/config/lua/keyassignment/SplitPane.html
 }
 
 -- and finally, return the configuration to wezterm
