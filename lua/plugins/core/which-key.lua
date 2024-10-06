@@ -55,30 +55,6 @@ return { -- Useful plugin to show you pending keybinds.
       -- Evaluate
       { '<leader>e', group = '[e]valuate' },
 
-      -- Git
-      { '<leader>g', group = '[g]it', mode = { 'n', 'v' } },
-      -- Git Config
-      { '<leader>g?', group = '[?] Config', mode = { 'n', 'v' } },
-      -- Git Config Global
-      { '<leader>g?g', group = '[g]lobal', mode = { 'n', 'v' } },
-      -- Git Config Local
-      { '<leader>g?l', group = '[l]ocal', mode = { 'n', 'v' } },
-      -- Git Diff
-      { '<leader>gd', group = '[d]iff', mode = { 'n', 'v' } },
-      -- Git Fetch
-      { '<leader>gf', group = '[f]etch', mode = { 'n', 'v' } },
-      -- Git List
-      { '<leader>gl', group = '[l]ist', mode = { 'n', 'v' } },
-      -- Git List Branch
-      { '<leader>glb', group = '[b]ranch', mode = { 'n', 'v' } },
-      -- Git List Config
-      { '<leader>glc', group = '[c]onfig', mode = { 'n', 'v' } },
-      -- Git List Config Global
-      { '<leader>glcg', group = '[g]lobal', mode = { 'n', 'v' } },
-      -- Git List Config Local
-      { '<leader>glcl', group = '[l]ocal', mode = { 'n', 'v' } },
-
-
       -- Harpoon
       { '<leader>h', group = '[h]arpoon' },
 
