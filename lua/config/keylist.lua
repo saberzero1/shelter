@@ -1,6 +1,4 @@
-local keylist = {
-  fugitive = {},
-}
+local keylist = {}
 
 keylist.fugitive = {
   ['<leader>'] = {
