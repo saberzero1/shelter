@@ -1,12 +1,11 @@
-util = require 'scripts.util'
+map = require 'scripts.keymapper'
 git = require 'scripts.git'
 
 keylist = require 'config.keylist'
 
 local keymap = {
-  figutive = {},
+  figutive = map:parse(keylist.fugitive),
+  diffview = map:parse(keylist.diffview),
 }
-
-keymap.fugitive = util:parse_keymap(keylist.fugitive)
 
 return keymap

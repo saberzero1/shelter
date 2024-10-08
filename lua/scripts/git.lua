@@ -1,6 +1,8 @@
 local builtin = require 'telescope.builtin'
-
 local assert = require 'scripts.assertions'
+
+Git = {}
+Git.__index = Git
 
 --- Concatenate a list of strings
 ---@param strings table List of strings to concatenate
@@ -9,23 +11,6 @@ local concat = function(strings)
   assert:is_table(strings)
   return table.concat(strings, ' ')
 end
-
-local git = {
-  call = {},
-  branch = {},
-  checkout = {},
-  config = {
-    get = {},
-    set = {},
-  },
-  fetch = {},
-  grep = {},
-  init = {},
-  pull = {},
-  push = {},
-  status = {},
-  stash = {},
-}
 
 -- Override the print function to use the notify function from nvim-notify
 local notify = require 'notify'
@@ -94,7 +79,7 @@ end
 ---@param input? boolean Ask for input
 ---@param question? string Question to ask the user
 ---@param async? boolean Run the command asynchronously
-git.call = function(command, options, input, question, async)
+function Git:call(command, options, input, question, async)
   input = input or false
   assert:is_string(command, false)
   assert:not_empty(command)
@@ -145,14 +130,14 @@ end
 
 --- Add operations
 ---@param options? string Options to pass to the Git command
-git.add = function(options)
+function Git:add(options)
   assert:is_string(options)
   git.call('add', options or '.', nil, nil, true)
 end
 
 --- Branch operations
 ---@param options? string Options to pass to the Git command
-git.branch = function(options)
+function Git:branch(options)
   assert:is_string(options)
   if options == nil or options == '' then
     assert:not_empty(builtin)
@@ -164,7 +149,7 @@ end
 
 --- Checkout operations
 ---@param options? string Options to pass to the Git command
-git.checkout = function(options)
+function Git:checkout(options)
   assert:is_string(options)
   if options == nil or options == '' then
     assert:not_empty(builtin)
@@ -178,7 +163,7 @@ end
 ---@param option string Config option to set
 ---@param value? string Value to set the config option to
 ---@param scope? string Scope of the config option (global, local)
-git.config.set = function(option, value, scope)
+function Git:config_set(option, value, scope)
   assert:is_string(option)
   scope = opt(scope or '', 'global')
   if value == nil or value == '' then
@@ -199,7 +184,7 @@ end
 --- Get the current value of a config option
 ---@param value? string Config option to get
 ---@param scope? string Scope of the config option (global, local)
-git.config.get = function(value, scope)
+function Git:config_get(value, scope)
   assert:is_string(value)
   assert:is_string(scope)
   scope = opt(scope or '', 'global')
@@ -217,27 +202,27 @@ end
 
 --- Fetch operations
 ---@param options? string Options to pass to the Git command
-git.fetch = function(options)
+function Git:fetch(options)
   assert:is_string(options)
   git.call('fetch', opt(options or ''), nil, nil, true)
 end
 
 --- Grep (ls-files) operations
-git.grep = function()
+function Git:grep()
   assert:not_empty(builtin)
   builtin.git_files()
 end
 
 --- Init operations
 ---@param options? string Options to pass to the Git Init command
-git.init = function(options)
+function Git:init(options)
   assert:is_string(options)
   git.call('init', opt(options or ''), nil, nil, true)
 end
 
 --- Pull operations
 ---@param options? string Options to pass to the Git Pull command
-git.pull = function(options)
+function Git:pull(options)
   assert:is_string(options)
   git.fetch()
   git.call('pull', opt(options or ''), nil, nil, true)
@@ -245,22 +230,22 @@ end
 
 --- Push operations
 ---@param options? string Options to pass to the Git Push command
-git.push = function(options)
+function Git:push(options)
   assert:is_string(options)
   git.fetch()
   git.call('push', opt(options or ''), nil, nil, true)
 end
 
 --- Status operations
-git.status = function()
+function Git:status()
   assert:not_empty(builtin)
   builtin.git_status()
 end
 
 --- Stash operations
-git.stash = function()
+function Git:stash()
   assert:not_empty(builtin)
   builtin.git_stash()
 end
 
-return git
+return Git
