@@ -1,5 +1,23 @@
 local keylist = {}
 
+keylist.diffview = {
+  ['<leader>'] = {
+    ['g'] = {
+      ['d'] = {
+        ['opts'] = { { group = '[d]iff', mode = { 'n', 'v' } } },
+        ['c'] = { function() vim.api.nvim_command('DiffviewClose') end, { desc = '[c]lose' } },
+        ['f'] = { function() vim.api.nvim_command('DiffviewFocusFiles') end, { desc = '[f]ocus' } },
+        ['h'] = { function() vim.api.nvim_command('DiffviewFileHistory') end, { desc = '[h]istory' } },
+        ['n'] = { function() require('diffview').next() end, { desc = '[n]ext' } },
+        ['o'] = { function() vim.api.nvim_command('DiffviewOpen') end, { desc = '[o]pen' } },
+        ['p'] = { function() require('diffview').prev() end, { desc = '[p]revious' } },
+        ['r'] = { function() vim.api.nvim_command('DiffviewRefresh') end, { desc = '[r]efresh' } },
+        ['t'] = { function() vim.api.nvim_command('DiffviewToggleFiles') end, { desc = '[t]oggle' } },
+      },
+    },
+  },
+}
+
 keylist.fugitive = {
   ['<leader>'] = {
     ['g'] = {
@@ -59,20 +77,13 @@ keylist.fugitive = {
   },
 }
 
-keylist.diffview = {
+keylist.spectre = {
   ['<leader>'] = {
-    ['g'] = {
-      ['d'] = {
-        ['opts'] = { { group = '[d]iff', mode = { 'n', 'v' } } },
-        ['c'] = { function() vim.api.nvim_command('DiffviewClose') end, { desc = '[c]lose' } },
-        ['f'] = { function() vim.api.nvim_command('DiffviewFocusFiles') end, { desc = '[f]ocus' } },
-        ['h'] = { function() vim.api.nvim_command('DiffviewFileHistory') end, { desc = '[h]istory' } },
-        ['n'] = { function() require('diffview').next() end, { desc = '[n]ext' } },
-        ['o'] = { function() vim.api.nvim_command('DiffviewOpen') end, { desc = '[o]pen' } },
-        ['p'] = { function() require('diffview').prev() end, { desc = '[p]revious' } },
-        ['r'] = { function() vim.api.nvim_command('DiffviewRefresh') end, { desc = '[r]efresh' } },
-        ['t'] = { function() vim.api.nvim_command('DiffviewToggleFiles') end, { desc = '[t]oggle' } },
-      },
+    ['r'] = {
+      ['opts'] = { { group = '[r]eplace', mode = { 'n', 'v' } } },
+      ['f'] = { function() require 'spectre'.toggle() end, { desc = 'Current [f]ile' } },
+      ['r'] = { function() require 'spectre'.open_visual({ select_word = true }) end, { desc = '[r]eplace in Files' } },
+      ['w'] = { function() require 'spectre'.open_file_search({ select_word = true }) end, { desc = 'Selected [w]ord' } },
     },
   },
 }

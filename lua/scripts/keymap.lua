@@ -5,8 +5,9 @@ builtin = require 'telescope.builtin'
 keylist = require 'config.keylist'
 
 local keymap = {
-  figutive = map:parse(keylist.fugitive),
   diffview = map:parse(keylist.diffview),
+  figutive = map:parse(keylist.fugitive),
+  spectre = map:parse(keylist.spectre),
   telescope = map:parse(keylist.telescope),
 }
 
