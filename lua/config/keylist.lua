@@ -73,8 +73,29 @@ keylist.diffview = {
         ['r'] = { function() vim.api.nvim_command('DiffviewRefresh') end, { desc = '[r]efresh' } },
         ['t'] = { function() vim.api.nvim_command('DiffviewToggleFiles') end, { desc = '[t]oggle' } },
       },
-    }
-  }
+    },
+  },
+}
+
+keylist.telescope = {
+  ['<leader>'] = {
+    ['<leader>'] = { builtin.buffers, { desc = '[ ] find existing buffers'} },
+    ['/'] = { function() builtin.current_buffer_fuzzy_find(require 'telescope.themes'.get_dropdown { winblend = 10, previewer = false }) end, { desc = '[/] Fuzzily search in current buffer' } },
+    ['s'] = {
+      ['opts'] = { { group = '[s]earch', mode = { 'n', 'v' } } },
+      ['d'] = { builtin.diagnostics, { desc = '[d]iagnostics' } },
+      ['f'] = { builtin.find_files, { desc = '[f]iles' } },
+      ['g'] = { builtin.live_grep, { desc = '[g]rep' } },
+      ['h'] = { builtin.help_tags, { desc = '[h]elp' } },
+      ['k'] = { builtin.keymaps, { desc = '[k]eymaps' } },
+      ['n'] = { function() builtin.find_files { cwd = vim.fn.stdpath 'config' } end, { desc = '[n]eovim files' } },
+      ['r'] = { builtin.resume, { desc = '[r]esume' } },
+      ['s'] = { builtin.builtin, { desc = '[s]elect Telescope' } },
+      ['w'] = { builtin.grep_string, { desc = 'current [w]ord' } },
+      ['.'] = { builtin.oldfiles, { desc = 'Recent Files ("." for repeat)' } },
+      ['/'] = { function() builtin.live_grep { grep_open_files = true, prompt_title = 'Live Grep in Open Files' } end, { desc = '[/] Grep in Open Files' } },
+    },
+  },
 }
 
 return keylist

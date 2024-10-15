@@ -1,3 +1,5 @@
+local keymap = require 'scripts.keymap'.telescope
+
 ---@type LazySpec
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
@@ -65,47 +67,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require 'telescope'.load_extension, 'fzf')
     pcall(require 'telescope'.load_extension, 'ui-select')
-
-
-    local key = function(mode, sequence, action, params)
-      params = params or {}
-      vim.keymap.set(mode, sequence, action, params)
-    end
-
-    -- See `:help telescope.builtin`
-    local builtin = require 'telescope.builtin'
-    key('n', '<leader>sh', builtin.help_tags, { desc = '[s]earch [h]elp' })
-    key('n', '<leader>sk', builtin.keymaps, { desc = '[s]earch [k]eymaps' })
-    key('n', '<leader>sf', builtin.find_files, { desc = '[s]earch [f]iles' })
-    key('n', '<leader>ss', builtin.builtin, { desc = '[s]earch [s]elect Telescope' })
-    key('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord' })
-    key('n', '<leader>sg', builtin.live_grep, { desc = '[s]earch by [g]rep' })
-    key('n', '<leader>sd', builtin.diagnostics, { desc = '[s]earch [d]iagnostics' })
-    key('n', '<leader>sr', builtin.resume, { desc = '[s]earch [r]esume' })
-    key('n', '<leader>s.', builtin.oldfiles, { desc = '[s]earch Recent Files ("." for repeat)' })
-    key('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-
-    -- Slightly advanced example of overriding default behavior and theme
-    key('n', '<leader>/', function()
-      -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require 'telescope.themes'.get_dropdown {
-        winblend = 10,
-        previewer = false,
-      })
-    end, { desc = '[/] Fuzzily search in current buffer' })
-
-    -- It's also possible to pass additional configuration options.
-    --  See `:help telescope.builtin.live_grep()` for information about particular keys
-    key('n', '<leader>s/', function()
-      builtin.live_grep {
-        grep_open_files = true,
-        prompt_title = 'Live Grep in Open Files',
-      }
-    end, { desc = '[s]earch [/] in Open Files' })
-
-    -- Shortcut for searching your Neovim configuration files
-    key('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[s]earch [n]eovim files' })
   end,
+  keys = keymap,
 }
