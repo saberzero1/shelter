@@ -53,7 +53,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>d', group = '[d]ocument' },
 
       -- Evaluate
-      { '<leader>e', group = '[e]valuate' },
+      --{ '<leader>e', group = '[e]valuate' },
 
       -- Harpoon
       { '<leader>h', group = '[h]arpoon' },

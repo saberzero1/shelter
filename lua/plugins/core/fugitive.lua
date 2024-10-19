@@ -1,4 +1,4 @@
-local keymap = require 'scripts.keymap'.fugitive
+local keymap = require('scripts.keymap').fugitive
 
 ---@type LazySpec
 return {
