@@ -14,6 +14,8 @@ local function basename(s)
 end
 
 local config = {
+  front_end = "WebGpu",
+  max_fps = 120,
 	default_workspace = "~",
 	font = require("font").font,
 	font_rules = require("font").font_rules,
