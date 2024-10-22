@@ -164,8 +164,8 @@ local keys = {
 			tab:set_title(wezterm.nerdfonts.dev_git .. " Lazygit")
 		end),
 	},
-	{
-		key = "-",
+	--[[{
+		key = "_",
 		mods = "CTRL | SHIFT | ALT",
 		action = wezterm.action.SplitPane({
 			direction = "Down",
@@ -173,13 +173,43 @@ local keys = {
 		}),
 	},
 	{
-		key = "_",
+		key = "|",
 		mods = "CTRL | SHIFT | ALT",
 		action = wezterm.action.SplitPane({
 			direction = "Right",
 			size = { Percent = 25 },
 		}),
+	},]]--
+  {
+		key = "_",
+		mods = "CTRL | SHIFT | ALT",
+		action = wezterm.action.SplitVertical({ domain = 'CurrentPaneDomain' }),
 	},
+	{
+		key = "|",
+		mods = "CTRL | SHIFT | ALT",
+		action = wezterm.action.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
+	},
+  {
+    key = 'LeftArrow',
+    --mods = 'CTRL | SHIFT | ALT',
+    action = act.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'RightArrow',
+    --mods = 'CTRL | SHIFT | ALT',
+    action = act.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'UpArrow',
+    --mods = 'CTRL | SHIFT | ALT',
+    action = act.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'DownArrow',
+    --mods = 'CTRL | SHIFT | ALT',
+    action = act.ActivatePaneDirection 'Down',
+  },
 	{
 		key = "z",
 		mods = "CTRL | SHIFT | ALT",
