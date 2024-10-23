@@ -1,4 +1,7 @@
 -- https://github.com/simonmclean/triptych.nvim
+local shared = require 'scripts.shared'
+local git_sign_icons = shared:git_signs()
+local explorer_icons = shared:explorer_icons()
 
 ---@type LazySpec
 return {
@@ -33,16 +36,16 @@ return {
       extension_mappings = {},
       options = {
         dirs_first = true,
-        show_hidden = false,
+        show_hidden = true,
         collapse_dirs = true,
         line_numbers = {
           enabled = true,
-          relative = false,
+          relative = true,
         },
         file_icons = {
           enabled = true,
-          directory_icon = '',
-          fallback_file_icon = '',
+          directory_icon = explorer_icons.directory,
+          fallback_file_icon = explorer_icons.file,
         },
         responsive_column_widths = {
           -- Keys are breakpoints, values are column widths
@@ -74,15 +77,16 @@ return {
           -- The value can be either a string or a table.
           -- If a string, will be basic text. If a table, will be passed as the {dict} argument to vim.fn.sign_define
           -- If you want to add color, you can specify a highlight group in the table.
-          add = '+',
-          modify = '~',
-          rename = 'r',
-          untracked = '?',
+          add = git_sign_icons.add,
+          modify = git_sign_icons.change,
+          rename = git_sign_icons.rename,
+          untracked = git_sign_icons.untracked,
         },
       },
       diagnostic_signs = {
         enabled = true,
       },
     })
+    vim.keymap.set('n', '<leader>-', ':Triptych<CR>', { silent = true })
   end,
 }

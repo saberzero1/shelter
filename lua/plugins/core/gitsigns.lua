@@ -1,20 +1,4 @@
-local sign = {
-  add = '+',
-  change = '~',
-  delete = '_',
-  topdelete = '‾',
-  changedelete = '~',
-}
-
-if vim.g.have_nerd_font then
-  sign = {
-    add = '',
-    change = '',
-    delete = '',
-    topdelete = '',
-    changedelete = '',
-  }
-end
+local sign = require 'scripts.shared':git_signs()
 
 ---@type LazySpec
 return { -- Adds git related signs to the gutter, as well as utilities for managing changes
