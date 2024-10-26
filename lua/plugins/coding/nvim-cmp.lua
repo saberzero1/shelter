@@ -36,12 +36,12 @@ return { -- Autocompletion
     'hrsh7th/cmp-path',
 
     -- Supermaven / SuperTab
-    {
+    --[[{
       'supermaven-inc/supermaven-nvim',
       opts = {
         disable_inline_completion = true, -- disables inline completion for use with cmp
       },
-    },
+    },]]--
   },
   config = function()
     -- SuperTab

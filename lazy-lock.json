@@ -36,7 +36,6 @@
   "precognition.nvim": { "branch": "main", "commit": "35c402c19a10e524d5378c9c0a5151ff5d847b06" },
   "ranger.nvim": { "branch": "main", "commit": "0f06eb92f2a5a618dc0d606d90e634d83e6e6b63" },
   "statuscol.nvim": { "branch": "main", "commit": "5998d16044159ad3779f62c45e756c555e3051f0" },
-  "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
