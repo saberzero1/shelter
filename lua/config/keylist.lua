@@ -1,5 +1,89 @@
 local keylist = {}
 
+keylist.copilot = {
+  ['<leader>'] = {
+    ['C'] = {
+      ['opts'] = { { group = '[C]opilot', mode = { 'n', 'v' } } },
+      -- Authenticate
+      ['l'] = {
+        function()
+          copilot_command 'auth signin'
+        end,
+        { desc = '[l]ogin' },
+      },
+      ['L'] = {
+        function()
+          copilot_command 'auth signout'
+        end,
+        { desc = '[L]ogin' },
+      },
+
+      -- Enable/Disable autotrigger
+      ['t'] = {
+        function()
+          copilot_command 'suggestion toggle_auto_trigger'
+        end,
+        { desc = '[t]oggle' },
+      },
+      ['e'] = {
+        function()
+          copilot_command 'enable'
+        end,
+        { desc = '[e]nable' },
+      },
+      ['d'] = {
+        function()
+          copilot_command 'disable'
+        end,
+        { desc = '[d]isable' },
+      },
+
+      -- Panel
+      ['p'] = {
+        ['opts'] = { { group = '[p]anel', mode = { 'n', 'v' } } },
+        ['o'] = {
+          function()
+            copilot_command 'panel open'
+          end,
+          { desc = '[o]pen' },
+        },
+        ['r'] = {
+          function()
+            copilot_command 'panel refresh'
+          end,
+          { desc = '[r]efresh' },
+        },
+        ['a'] = {
+          function()
+            copilot_command 'panel accept'
+          end,
+          { desc = '[a]ccept' },
+        },
+        ['n'] = {
+          function()
+            copilot_command 'panel jump_next'
+          end,
+          { desc = '[n]ext' },
+        },
+        ['p'] = {
+          function()
+            copilot_command 'panel jump_prev'
+          end,
+          { desc = '[p]rev' },
+        },
+      },
+
+      -- Status
+      ['s'] = {
+        function()
+          copilot_command 'status'
+        end,
+        { desc = '[s]tatus' },
+      },
+    },
+  },
+}
+
 keylist.diffview = {
   ['<leader>'] = {
     ['g'] = {
