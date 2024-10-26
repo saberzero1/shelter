@@ -7,5 +7,5 @@ return {
   { import = 'plugins.coding.treesitter' },
   { import = 'plugins.coding.copilot' },
   { import = 'plugins.coding.copilot-cmp' },
-  { import = 'plugins.coding.spectre' },
+  --{ import = 'plugins.coding.spectre' },
 }

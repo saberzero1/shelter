@@ -150,8 +150,8 @@ return { -- Autocompletion
           group_index = 0,
         },
         -- Copilot Sources
-        { name = 'supermaven' },
-        -- { name = 'copilot' },
+        -- { name = 'supermaven' },
+        { name = 'copilot' },
         -- Other Sources
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
