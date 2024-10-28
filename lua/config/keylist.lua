@@ -336,6 +336,74 @@ keylist.fugitive = {
   },
 }
 
+keylist.harpoon = {
+  ['<leader>'] = {
+    ['h'] = {
+      ['opts'] = { { group = '[h]arpoon', mode = { 'n', 'v' } } },
+      ['a'] = {
+        function()
+          require('harpoon'):list():add()
+        end,
+        { desc = '[a]dd' },
+      },
+    },
+    ['1'] = {
+      function()
+        require('harpoon'):list():select(1)
+      end,
+      { desc = '[1] Harpoon' },
+    },
+    ['2'] = {
+      function()
+        require('harpoon'):list():select(2)
+      end,
+      { desc = '[2] Harpoon' },
+    },
+    ['3'] = {
+      function()
+        require('harpoon'):list():select(3)
+      end,
+      { desc = '[3] Harpoon' },
+    },
+    ['4'] = {
+      function()
+        require('harpoon'):list():select(4)
+      end,
+      { desc = '[4] Harpoon' },
+    },
+    ['5'] = {
+      function()
+        require('harpoon'):list():select(5)
+      end,
+      { desc = '[5] Harpoon' },
+    },
+    ['6'] = {
+      function()
+        require('harpoon'):list():select(6)
+      end,
+      { desc = '[6] Harpoon' },
+    },
+    ['7'] = {
+      function()
+        require('harpoon'):list():select(7)
+      end,
+      { desc = '[7] Harpoon' },
+    },
+    ['8'] = {
+      function()
+        require('harpoon'):list():select(8)
+      end,
+      { desc = '[8] Harpoon' },
+    },
+    ['9'] = {
+      function()
+        require('harpoon'):list():select(9)
+      end,
+      { desc = '[9] Harpoon' },
+    },
+  },
+}
+
 keylist.ranger = {
   ['<leader>'] = {
     ['e'] = {
