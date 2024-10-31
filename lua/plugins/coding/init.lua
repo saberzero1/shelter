@@ -1,5 +1,6 @@
 return {
   { import = 'plugins.coding.luvit' },
+  { import = 'plugins.coding.typescript' },
   { import = 'plugins.coding.nvim-lspconfig' },
   { import = 'plugins.coding.lazydev' },
   { import = 'plugins.coding.conform' },
