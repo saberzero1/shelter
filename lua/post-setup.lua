@@ -2,9 +2,9 @@ if vim.g.vscode then
   require 'plugins.mistakes.azure-data-studio'
 end
 
-require 'config.options'
-require 'config.keymaps'
-require 'config.autocmds'
+--require 'config.options'
+--require 'config.keymaps'
+--require 'config.autocmds'
 
 --vim.o.statuscolumn = "%!v:lua.require('scripts.status-column').status_bar()"
 require 'scripts.highlight'

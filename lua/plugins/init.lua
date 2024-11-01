@@ -1,4 +1,4 @@
-if vim.g.vscode then
+--[[if vim.g.vscode then
   return {
     { import = 'plugins.mistakes'},
   }
@@ -13,3 +13,5 @@ else
     { import = 'plugins.integration' },
   }
 end
+]]--
+return {}

@@ -1,3 +1,5 @@
+require 'config.extra.autocmds'
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
