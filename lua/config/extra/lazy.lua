@@ -7,6 +7,7 @@ settings.spec = {
   { import = "lazyvim.plugins.extras.vscode" },
   -- coding
   { import = "lazyvim.plugins.extras.coding.copilot" },
+  { import = "lazyvim.plugins.extras.coding.luasnip" },
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
   -- dap
   { import = "lazyvim.plugins.extras.dap.core" },
