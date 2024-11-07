@@ -2,37 +2,38 @@ local settings = {}
 
 settings.spec = {
   -- add LazyVim and import its plugins
-  { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+  { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
   -- vsc*de
-  { import = "lazyvim.plugins.extras.vscode" },
+  { import = 'lazyvim.plugins.extras.vscode' },
   -- coding
-  { import = "lazyvim.plugins.extras.coding.copilot" },
-  { import = "lazyvim.plugins.extras.coding.luasnip" },
-  { import = "lazyvim.plugins.extras.coding.mini-surround" },
+  { import = 'lazyvim.plugins.extras.coding.copilot' },
+  { import = 'lazyvim.plugins.extras.coding.luasnip' },
+  { import = 'lazyvim.plugins.extras.coding.mini-surround' },
   -- dap
-  { import = "lazyvim.plugins.extras.dap.core" },
-  { import = "lazyvim.plugins.extras.dap.nlua" },
+  { import = 'lazyvim.plugins.extras.dap.core' },
+  { import = 'lazyvim.plugins.extras.dap.nlua' },
   -- editor
-  { import = "lazyvim.plugins.extras.editor.fzf" },
-  { import = "lazyvim.plugins.extras.editor.harpoon2" },
-  { import = "lazyvim.plugins.extras.editor.telescope" },
+  { import = 'lazyvim.plugins.extras.editor.fzf' },
+  { import = 'lazyvim.plugins.extras.editor.harpoon2' },
+  { import = 'lazyvim.plugins.extras.editor.telescope' },
   -- formatting
-  { import = "lazyvim.plugins.extras.linting.eslint" },
-  { import = "lazyvim.plugins.extras.formatting.prettier" },
+  { import = 'lazyvim.plugins.extras.linting.eslint' },
+  { import = 'lazyvim.plugins.extras.formatting.prettier' },
   -- language
-  { import = "lazyvim.plugins.extras.lang.git" },
-  { import = "lazyvim.plugins.extras.lang.markdown" },
-  { import = "lazyvim.plugins.extras.lang.nix" },
-  { import = "lazyvim.plugins.extras.lang.sql" },
-  { import = "lazyvim.plugins.extras.lang.toml" },
-  { import = "lazyvim.plugins.extras.lang.typescript" },
-  { import = "lazyvim.plugins.extras.lang.yaml" },
+  { import = 'lazyvim.plugins.extras.lang.git' },
+  { import = 'lazyvim.plugins.extras.lang.markdown' },
+  { import = 'lazyvim.plugins.extras.lang.nix' },
+  { import = 'lazyvim.plugins.extras.lang.sql' },
+  { import = 'lazyvim.plugins.extras.lang.svelte' },
+  { import = 'lazyvim.plugins.extras.lang.toml' },
+  { import = 'lazyvim.plugins.extras.lang.typescript' },
+  { import = 'lazyvim.plugins.extras.lang.yaml' },
   -- ui
-  { import = "lazyvim.plugins.extras.ui.treesitter-context" },
+  { import = 'lazyvim.plugins.extras.ui.treesitter-context' },
   -- util
-  { import = "lazyvim.plugins.extras.util.gitui" },
+  { import = 'lazyvim.plugins.extras.util.gitui' },
   -- import/override with your plugins
-  { import = "plugins" },
+  { import = 'plugins' },
 }
 
 settings.ui = {
