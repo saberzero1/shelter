@@ -5,8 +5,9 @@ settings.spec = {
   { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
   -- vsc*de
   { import = 'lazyvim.plugins.extras.vscode' },
+  -- ai
+  { import = 'lazyvim.plugins.extras.ai.copilot' },
   -- coding
-  { import = 'lazyvim.plugins.extras.coding.copilot' },
   { import = 'lazyvim.plugins.extras.coding.luasnip' },
   { import = 'lazyvim.plugins.extras.coding.mini-surround' },
   -- dap
