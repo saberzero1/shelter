@@ -12,7 +12,7 @@ return {
       pyright = {},
       ts_ls = {},
       lua_ls = {},
-      nil_ls = {},
+      nixd = {},
     },
   },
 }
