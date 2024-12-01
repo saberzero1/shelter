@@ -12,7 +12,11 @@ return {
       pyright = {},
       ts_ls = {},
       lua_ls = {},
-      nixd = {},
+      nixd = {
+        formatting = {
+          command = { 'nixfmt' },
+        },
+      },
     },
   },
 }
