@@ -11,6 +11,8 @@ return {
       -- pyright will be automatically installed with mason and loaded with lspconfig
       pyright = {},
       ts_ls = {},
+      lua_ls = {},
+      rnix = {},
     },
   },
 }
