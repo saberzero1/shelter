@@ -5,7 +5,8 @@
 --[[local key = function(mode, sequence, action, params)
   params = params or {}
   vim.keymap.set(mode, sequence, action, params)
-end]]--
+end]]
+--
 
 local key_nvim = function(mode, sequence, action, params)
   params = params or {}
@@ -53,7 +54,8 @@ end
   key("v", "<C-v>", '"+P') -- Paste visual mode
   key("c", "<C-v>", "<C-R>+") -- Paste command mode
   key("i", "<C-v>", '<ESC>l"+Pli') -- Paste insert mode
-end]]--
+end]]
+--
 
 -- Allow clipboard copy paste in neovim
 key_nvim('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
