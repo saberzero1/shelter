@@ -10,6 +10,7 @@ settings.spec = {
   -- coding
   { import = 'lazyvim.plugins.extras.coding.luasnip' },
   { import = 'lazyvim.plugins.extras.coding.mini-surround' },
+  { import = 'lazyvim.plugins.extras.coding.yanky' },
   -- dap
   { import = 'lazyvim.plugins.extras.dap.core' },
   { import = 'lazyvim.plugins.extras.dap.nlua' },
