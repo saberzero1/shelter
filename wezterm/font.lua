@@ -1,6 +1,13 @@
 local font = require('wezterm').font
-local font_with_fallback = require('wezterm').font_with_fallback
 local harfbuzz_features = { 'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08' }
+
+local function font_with_fallback(linux_families, darwin_families)
+  local result = linux_families
+  if require('wezterm').target_triple:find 'darwin' ~= nil then
+    result = darwin_families or linux_families
+  end
+  return font(result)
+end
 
 return {
   -- default font
@@ -31,12 +38,12 @@ return {
       italic = false,
       font = font_with_fallback {
         {
-          family = 'MonaspiceNe Nerd Font',
+          family = 'Monaspace Neon',
           weight = 'Medium',
           harfbuzz_features = harfbuzz_features,
         },
         {
-          family = 'Monaspace Neon',
+          family = 'MonaspiceNe Nerd Font',
           weight = 'Medium',
           harfbuzz_features = harfbuzz_features,
         },
@@ -47,12 +54,12 @@ return {
       italic = false,
       font = font_with_fallback {
         {
-          family = 'MonaspiceAr Nerd Font',
+          family = 'Monaspace Argon',
           weight = 'ExtraBold',
           harfbuzz_features = harfbuzz_features,
         },
         {
-          family = 'Monaspace Argon',
+          family = 'MonaspiceAr Nerd Font',
           weight = 'ExtraBold',
           harfbuzz_features = harfbuzz_features,
         },
@@ -63,12 +70,12 @@ return {
       italic = false,
       font = font_with_fallback {
         {
-          family = 'MonaspicaKr Nerd Font',
+          family = 'Monaspace Krypton',
           weight = 'Book',
           harfbuzz_features = harfbuzz_features,
         },
         {
-          family = 'Monaspace Krypton',
+          family = 'MonaspicaKr Nerd Font',
           weight = 'Book',
           harfbuzz_features = harfbuzz_features,
         },
@@ -79,13 +86,13 @@ return {
       italic = true,
       font = font_with_fallback {
         {
-          family = 'MonaspiceAr Nerd Font',
+          family = 'Monaspace Argon',
           weight = 'Regular',
           style = 'Italic',
           harfbuzz_features = harfbuzz_features,
         },
         {
-          family = 'Monaspace Argon',
+          family = 'MonaspiceAr Nerd Font',
           weight = 'Regular',
           style = 'Italic',
           harfbuzz_features = harfbuzz_features,
@@ -97,13 +104,13 @@ return {
       italic = true,
       font = font_with_fallback {
         {
-          family = 'MonaspiceAr Nerd Font',
+          family = 'Monaspace Argon',
           weight = 'DemiBold',
           style = 'Italic',
           harfbuzz_features = harfbuzz_features,
         },
         {
-          family = 'Monaspace Argon',
+          family = 'MonaspiceAr Nerd Font',
           weight = 'DemiBold',
           style = 'Italic',
           harfbuzz_features = harfbuzz_features,
@@ -115,13 +122,13 @@ return {
       italic = true,
       font = font_with_fallback {
         {
-          family = 'MonaspiceAr Nerd Font',
+          family = 'Monaspace Argon',
           weight = 'Thin',
           style = 'Italic',
           harfbuzz_features = harfbuzz_features,
         },
         {
-          family = 'Monaspace Argon',
+          family = 'MonaspiceAr Nerd Font',
           weight = 'Thin',
           style = 'Italic',
           harfbuzz_features = harfbuzz_features,
