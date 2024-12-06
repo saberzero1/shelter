@@ -1,14 +1,23 @@
 local font = require("wezterm").font
-local harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" }
+local harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09" }
 
 return {
 	-- default font
-	font = font({
+	font = font_with_fallback({
 		family = "Monaspace Neon",
 		-- family = "Monaspace Argon",
 		-- family = "Monaspace Xenon",
 		-- family = "Monaspace Radon",
 		-- family = "Monaspace Krypton",
+		weight = "Medium",
+		harfbuzz_features = harfbuzz_features,
+	},
+	{
+		family = "MonaspiceNe Nerd Font",
+		family = "MonaspiceAr Nerd Font",
+		family = "MonaspiceXe Nerd Font",
+		family = "MonaspiceRa Nerd Font",
+		family = "MonaspiceKr Nerd Font",
 		weight = "Medium",
 		harfbuzz_features = harfbuzz_features,
 	}),
