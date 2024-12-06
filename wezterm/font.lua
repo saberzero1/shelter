@@ -4,11 +4,11 @@ local harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03", "ss0
 return {
 	-- default font
 	font = font_with_fallback({
-		family = "MonaspiceNe Nerd Font Propo",
-		-- family = "MonaspiceAr Nerd Font Propo",
-		-- family = "MonaspiceXe Nerd Font Propo",
-		-- family = "MonaspiceRa Nerd Font Propo",
-		-- family = "MonaspiceKr Nerd Font Propo",
+		family = "MonaspiceNe Nerd Font",
+		-- family = "MonaspiceAr Nerd Font",
+		-- family = "MonaspiceXe Nerd Font",
+		-- family = "MonaspiceRa Nerd Font",
+		-- family = "MonaspiceKr Nerd Font",
 		weight = "Medium",
 		harfbuzz_features = harfbuzz_features,
 	},
@@ -27,7 +27,7 @@ return {
 			intensity = "Normal",
 			italic = false,
 			font = font_with_fallback({
-				family = "MonaspiceNe Nerd Font Propo",
+				family = "MonaspiceNe Nerd Font",
 				weight = "Medium",
 				harfbuzz_features = harfbuzz_features,
 			},
@@ -41,7 +41,7 @@ return {
 			intensity = "Bold",
 			italic = false,
 			font = font_with_fallback({
-				family = "MonaspiceAr Nerd Font Propo",
+				family = "MonaspiceAr Nerd Font",
 				weight = "ExtraBold",
 				harfbuzz_features = harfbuzz_features,
 			},
@@ -55,7 +55,7 @@ return {
 			intensity = "Half",
 			italic = false,
 			font = font_with_fallback({
-				family = "MonaspicaKr Nerd Font Propo",
+				family = "MonaspicaKr Nerd Font",
 				weight = "Book",
 				harfbuzz_features = harfbuzz_features,
 			},
@@ -69,7 +69,7 @@ return {
 			intensity = "Normal",
 			italic = true,
 			font = font_with_fallback({
-				family = "MonaspiceAr Nerd Font Propo",
+				family = "MonaspiceAr Nerd Font",
 				weight = "Regular",
 				style = "Italic",
 				harfbuzz_features = harfbuzz_features,
@@ -85,7 +85,7 @@ return {
 			intensity = "Bold",
 			italic = true,
 			font = font_with_fallback({
-				family = "MonaspiceAr Nerd Font Propo",
+				family = "MonaspiceAr Nerd Font",
 				weight = "DemiBold",
 				style = "Italic",
 				harfbuzz_features = harfbuzz_features,
@@ -101,7 +101,7 @@ return {
 			intensity = "Half",
 			italic = true,
 			font = font_with_fallback({
-				family = "MonaspiceAr Nerd Font Propo",
+				family = "MonaspiceAr Nerd Font",
 				weight = "Thin",
 				style = "Italic",
 				harfbuzz_features = harfbuzz_features,
