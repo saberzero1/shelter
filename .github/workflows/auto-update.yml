@@ -20,11 +20,11 @@ jobs:
           chmod +x $HOME/nvim.appimage
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
-          cp -r /home/runner/work/nvim/nvim/* $HOME/.config/nvim/
+          cp -r /home/runner/work/nvim/shelter/* $HOME/.config/nvim/
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
           $HOME/nvim.appimage --headless +q
-          cp -r $HOME/.config/nvim/lazy-lock.json /home/runner/work/nvim/nvim/lazy-lock.json
+          cp -r $HOME/.config/nvim/lazy-lock.json /home/runner/work/nvim/shelter/lazy-lock.json
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
