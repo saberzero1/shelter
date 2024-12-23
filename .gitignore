@@ -1,11 +1,9 @@
 tags
 test.sh
 .luarc.json
-nvim
 data/
 
 spell/
 .vscode/
 
 .DS_Store
-
