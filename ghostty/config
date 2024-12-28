@@ -8,7 +8,7 @@ config-file = ?macos/keybindings
 config-file = ?shared/config
 config-file = ?shared/keybindings
 
-font-size = 14;
+font-size = 14
 font-family = Monaspace Neon
 theme = Tomorrow Night Bright
 shell-integration = zsh
