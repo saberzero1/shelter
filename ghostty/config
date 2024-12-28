@@ -10,5 +10,5 @@ config-file = ?shared/keybindings
 
 font-size = 14
 font-family = Monaspace Neon
-theme = Tomorrow Night Bright
+theme = tokyonight-storm
 shell-integration = zsh
