@@ -10,5 +10,5 @@ config-file = ?shared/keybindings
 
 font-size: 14;
 font-family = Monaspace Neon
-theme = "../themes/Ghostty/Tomorrow Night Bright"
+theme = Tomorrow Night Bright
 shell-integration = zsh
