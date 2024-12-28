@@ -196,7 +196,8 @@ mode "launcher" {
   # Return to default mode
   bindsym Escape mode "default"
 }
-bindsym $mod+o mode "launcher"
+#bindsym $mod+o mode "launcher"
+bindsym $mod+o exec wofi &
 bindsym $mod2+o exec wofi &
 
 input "type:touchpad" {
