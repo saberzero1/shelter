@@ -10,5 +10,5 @@ config-file = ?shared/keybindings
 
 font-size: 14px;
 font-family = "Monaspace Neon"
-theme = "${flake.inputs.color-schemes}/Ghostty/Tomorrow Night Bright"
+theme = "../themes/Ghostty/Tomorrow Night Bright"
 shell-integration = zsh
