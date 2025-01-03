@@ -57,8 +57,8 @@
   "trouble.nvim": { "branch": "main", "commit": "46cf952fc115f4c2b98d4e208ed1e2dce08c9bf6" },
   "ts-comments.nvim": { "branch": "main", "commit": "872dcfa0418f4a33b7437fb4d9f4e89f2f000d74" },
   "vim-dadbod": { "branch": "master", "commit": "f740950d0703099e0f172016f10e0e39f50fd0ba" },
-  "vim-dadbod-completion": { "branch": "master", "commit": "e88fb90bb5db97052b7ae6d2604833c7a2cd24d0" },
-  "vim-dadbod-ui": { "branch": "master", "commit": "0fec59e3e1e619e302198cd491b7d27f8d398b7c" },
+  "vim-dadbod-completion": { "branch": "master", "commit": "d7bca4c8553c90d06e9e96907954b37ea64fb989" },
+  "vim-dadbod-ui": { "branch": "master", "commit": "b4b95e04fcd71c7787673b2a165221d681d06171" },
   "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" },
   "yanky.nvim": { "branch": "main", "commit": "f9b905994cccf3c55f41af3a0a1f4c76c844e411" }
 }
