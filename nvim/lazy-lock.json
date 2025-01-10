@@ -1,7 +1,7 @@
 {
   "LazyVim": { "branch": "main", "commit": "d1529f650fdd89cb620258bdeca5ed7b558420c7" },
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "7de878c943c130ff0378bf0e9b67cee8bb53731b" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "b992bb1821fabb11db7fea4ecc7f769b11678cb2" },
   "blink-cmp-copilot": { "branch": "main", "commit": "c5c5cbce5748d21073f1d5348a92ebe6ce63f387" },
   "blink.cmp": { "branch": "main", "commit": "1cc3b1a908fbcfd15451c4772759549724f38524" },
   "bufferline.nvim": { "branch": "main", "commit": "9f0826ae6adfd836a23bf8a4910e3c07450211f4" },
@@ -32,7 +32,7 @@
   "neocord": { "branch": "main", "commit": "4d55d8dab2d5f2f272192add7a2c21982039c699" },
   "noice.nvim": { "branch": "main", "commit": "eaed6cc9c06aa2013b5255349e4f26a6b17ab70f" },
   "nui.nvim": { "branch": "main", "commit": "53e907ffe5eedebdca1cd503b00aa8692068ca46" },
-  "nvim-colorizer.lua": { "branch": "master", "commit": "359d4560d372486a787826216c33ed2ec5e88b00" },
+  "nvim-colorizer.lua": { "branch": "master", "commit": "dd643c1ec5f4aa7d8fbfde4005389b7af9fef480" },
   "nvim-dap": { "branch": "master", "commit": "99807078c5089ed30e0547aa4b52c5867933f426" },
   "nvim-dap-ui": { "branch": "master", "commit": "727c032a8f63899baccb42a1c26f27687e62fc5e" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "df66808cd78b5a97576bbaeee95ed5ca385a9750" },
