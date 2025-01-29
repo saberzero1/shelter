@@ -19,7 +19,7 @@ jobs:
         run: |
           # wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-86_64.appimage -O $HOME/nvim.appimage
           sudo apt install neovim
-          chmod +x $HOME/nvim.appimage
+          # chmod +x $HOME/nvim.appimage
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
           cp -r ${{ github.workspace }}/nvim/* $HOME/.config/nvim/
