@@ -17,7 +17,7 @@ jobs:
 
       - name: Update packages
         run: |
-          wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $HOME/nvim.appimage
+          wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-86_64.appimage -O $HOME/nvim.appimage
           chmod +x $HOME/nvim.appimage
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
