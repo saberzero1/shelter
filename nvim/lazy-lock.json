@@ -51,7 +51,7 @@
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
   "precognition.nvim": { "branch": "main", "commit": "531971e6d883e99b1572bf47294e22988d8fbec0" },
   "render-markdown.nvim": { "branch": "main", "commit": "46b0d4125fa5ef6d93a867d540f7c422c339ecc2" },
-  "snacks.nvim": { "branch": "main", "commit": "c2310c6d1ecb4d5fad701ed0aeb92adc2f0db385" },
+  "snacks.nvim": { "branch": "main", "commit": "d0a84b2156044f8dc396ecb1b9a8738a3daf5a90" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "dae2eac9d91464448b584c7949a31df8faefec56" },
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
