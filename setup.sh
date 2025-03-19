@@ -77,7 +77,7 @@ echo -e "{BCyan}Installing Dependencies...{Color_Off}"
 
 # Install starship
 echo -e "{Cyan}Installing starship...{Color_Off}"
-curl -sS https://starship.rs/install.sh | bash -s -- -y
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 echo -e "{BCyan}Copying configuration files...{Color_Off}"
 
