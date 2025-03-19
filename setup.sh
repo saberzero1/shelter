@@ -8,17 +8,17 @@ Red='\033[0;31m' # Red
 # Yellow='\033[0;33m'       # Yellow
 # Blue='\033[0;34m'         # Blue
 # Purple='\033[0;35m'       # Purple
-Cyan='\033[0;36m' # Cyan
+# Cyan='\033[0;36m' # Cyan
 # White='\033[0;37m'        # White
 #
 # # Bold
 # BBlack='\033[1;30m'       # Black
-BRed='\033[1;31m' # Red
+# BRed='\033[1;31m' # Red
 # BGreen='\033[1;32m'       # Green
 # BYellow='\033[1;33m'      # Yellow
 # BBlue='\033[1;34m'        # Blue
 # BPurple='\033[1;35m'      # Purple
-BCyan='\033[1;36m' # Cyan
+# BCyan='\033[1;36m' # Cyan
 # BWhite='\033[1;37m'       # White
 #
 # # Underline
@@ -71,38 +71,45 @@ BCyan='\033[1;36m' # Cyan
 # On_ICyan='\033[0;106m'    # Cyan
 # On_IWhite='\033[0;107m'   # White
 
-echo -e "{BCyan}Setting up dotfiles...{Color_Off}"
+echo "Setting up dotfiles..."
+# Add `~/bin` to the `$PATH`
+export PATH="$HOME/bin:$PATH"
 
-echo -e "{BCyan}Installing Dependencies...{Color_Off}"
+# Copy the codespaces directory to the home directory
+echo "Copying codespaces directory..."
+cp -a codespaces ~/
 
-# Install Getnf
-echo -e "{Cyan}Installing Getnf...{Color_Off}"
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | sh -s -- --silent
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+# for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{fonts}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 
-# Install Monaspace Nerd Font
-echo -e "{Cyan}Installing Monaspace Nerd Font...{Color_Off}"
-getnf -i "Monaspace"
+echo "Installing Dependencies..."
 
 # Install starship
-echo -e "{Cyan}Installing starship...{Color_Off}"
+echo -e "Installing starship..."
 curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 
-echo -e "{BCyan}Copying configuration files...{Color_Off}"
+echo -e "Copying configuration files..."
 
 # Copy starship/starship.toml
-echo -e "{Cyan}Copying starship.toml...{Color_Off}"
+echo -e "Copying starship.toml..."
 cp starship/starship.toml ~/.config/starship.toml
 
 if ! [ -f ~/.config/starship.toml ]; then
-  echo "{BRed}starship.toml does not exist.{Color_Off}"
+  echo "{Red}starship.toml does not exist."
 fi
 
 # Copy codespaces/.bashrc
-echo -e "{Cyan}Copying .bashrc...{Color_Off}"
+echo -e "Copying .bashrc..."
 cp codespaces/.bashrc ~/.bashrc
 
 if ! [ -f ~/.bashrc ]; then
-  echo "{BRed}.bashrc does not exist.{Color_Off}"
+  echo "{Red}.bashrc does not exist."
 fi
 
-echo "{BCyan}Finished setting up dotfiles.{Color_Off}"
+echo "Finished setting up dotfiles."
