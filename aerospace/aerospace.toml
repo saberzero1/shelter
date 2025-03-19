@@ -79,7 +79,7 @@ alt-cmd-ctrl-0 = 'move-node-to-workspace 10'
 
 alt-cmd-ctrl-c = 'reload-config'
 
-alt-cmd-q = 'close'
+# alt-cmd-q = 'close'
 alt-cmd-ctrl-q = 'close --quit-if-last-window'
 
 alt-cmd-r = 'mode resize'
