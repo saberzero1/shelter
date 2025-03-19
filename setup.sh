@@ -75,9 +75,17 @@ echo -e "{BCyan}Setting up dotfiles...{Color_Off}"
 
 echo -e "{BCyan}Installing Dependencies...{Color_Off}"
 
+# Install Getnf
+echo -e "{Cyan}Installing Getnf...{Color_Off}"
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | sh -s -- --silent
+
+# Install Monaspace Nerd Font
+echo -e "{Cyan}Installing Monaspace Nerd Font...{Color_Off}"
+getnf -i "Monaspace"
+
 # Install starship
 echo -e "{Cyan}Installing starship...{Color_Off}"
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 
 echo -e "{BCyan}Copying configuration files...{Color_Off}"
 
