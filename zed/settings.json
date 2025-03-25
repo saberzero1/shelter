@@ -1,4 +1,9 @@
 {
+  "theme": {
+    "mode": "system",
+    "dark": "Tokyo Night Storm",
+    "light": "Tokyo Night Light"
+  },
   "features": {
     "copilot": true
   },
