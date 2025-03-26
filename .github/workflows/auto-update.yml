@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install neovim
         run: sudo apt install -y git curl wget luajit build-essential libfuse-dev
@@ -29,8 +29,11 @@ jobs:
           nvim --headless "+Lazy! sync" +qa
           cp -r $HOME/.config/nvim/lazy-lock.json ${{ github.workspace }}/nvim/lazy-lock.json
       - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          skip_checkout: false
+          skip_dirty_check: false
+          skip_fetch: false
           commit_message: "[ci] plugin(s): auto-updated"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
