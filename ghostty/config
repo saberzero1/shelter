@@ -8,7 +8,7 @@ config-file = ?macos/keybindings
 config-file = ?shared/config
 config-file = ?shared/keybindings
 
-font-size = 16
+font-size = 18
 font-family = Monaspace Neon
 theme = dark:tokyonight-storm,light:tokyonight-day
 shell-integration = zsh
