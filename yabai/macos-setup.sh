@@ -15,9 +15,9 @@ if [ -z "$HASH" ]; then
 fi
 
 # Check if /private/etc/sudoers.d/yabai exists
-if [ ! -f /private/etc/sudoers.d/yabai ]; then
+if [ ! -f "/private/etc/sudoers.d/yabai" ]; then
   echo "/private/etc/sudoers.d/yabai does not exists. Creating it."
-  touch /private/etc/sudoers.d/yabai
+  sudo touch /private/etc/sudoers.d/yabai
 fi
 
 # Construct the new sudoers entry
