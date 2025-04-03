@@ -1,0 +1,54 @@
+# keybindings for yabai on macos
+
+# move focus
+# within window
+alt + cmd - h : yabai -m window --focus west;
+alt + cmd - j : yabai -m window --focus south;
+alt + cmd - k : yabai -m window --focus north;
+alt + cmd - l : yabai -m window --focus east;
+
+# between windows
+alt + cmd - p : yabai -m window --focus prev;
+alt + cmd - n : yabai -m window --focus next;
+
+alt + cmd - 1 : yabai -m window --focus 1;
+alt + cmd - 2 : yabai -m window --focus 2;
+alt + cmd - 3 : yabai -m window --focus 3;
+alt + cmd - 4 : yabai -m window --focus 4;
+alt + cmd - 5 : yabai -m window --focus 5;
+alt + cmd - 6 : yabai -m window --focus 6;
+alt + cmd - 7 : yabai -m window --focus 7;
+alt + cmd - 8 : yabai -m window --focus 8;
+alt + cmd - 9 : yabai -m window --focus 9;
+alt + cmd - 10 : yabai -m window --focus 10;
+
+# move windows
+# within window
+ctrl + alt + cmd - h : yabai -m window --swap west --focus;
+ctrl + alt + cmd - j : yabai -m window --swap south --focus;
+ctrl + alt + cmd - k : yabai -m window --swap north --focus;
+ctrl + alt + cmd - l : yabai -m window --swap east --focus;
+
+# between windows
+ctrl + alt + cmd - p : yabai -m window --display west; yabai -m display --swap west --focus;
+ctrl + alt + cmd - n : yabai -m window --display east; yabai -m display --swap east --focus;
+
+alt + cmd - 1 : yabai -m window --swap 1 --focus;
+alt + cmd - 2 : yabai -m window --swap 2 --focus;
+alt + cmd - 3 : yabai -m window --swap 3 --focus;
+alt + cmd - 4 : yabai -m window --swap 4 --focus;
+alt + cmd - 5 : yabai -m window --swap 5 --focus;
+alt + cmd - 6 : yabai -m window --swap 6 --focus;
+alt + cmd - 7 : yabai -m window --swap 7 --focus;
+alt + cmd - 8 : yabai -m window --swap 8 --focus;
+alt + cmd - 9 : yabai -m window --swap 9 --focus;
+alt + cmd - 10 : yabai -m window --swap 10 --focus;
+
+# miscellaneous
+# maximize window
+alt + cmd - f : yabai -m window --toggle zoom-fullscreen;
+
+# closing windows
+alt + cmd - q : yabai -m window --close;
+ctrl + alt + cmd - q : yabai -m window --close;
+
