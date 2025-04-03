@@ -21,12 +21,12 @@ if [ ! -f "/private/etc/sudoers.d/yabai" ]; then
 fi
 
 # Construct the new sudoers entry
-SUDOERS_ENTRY="emile ALL=(root) NOPASSWD:$HASH \"$YABAI_PATH\" --load-sa"
+SUDOERS_ENTRY="emile ALL=(root) NOPASSWD: sha256:$HASH $YABAI_PATH --load-sa"
 
 # Write the netry to /private/etc/sudoers.d/yabai
-echo "$SUDOERS_ENTRY" | sudo tee "/private/etc/sudoers.d/yabai" >/dev/null
+echo "$SUDOERS_ENTRY" | sudo tee /private/etc/sudoers.d/yabai >/dev/null
 
 # Set the appropriate permissions for the sudoers file
-sudo chmod 0440 "/private/etc/sudoers.d/yabai"
+sudo chmod 0440 /private/etc/sudoers.d/yabai
 
 echo "Updated /private/etc/sudoers.d/yabai successfully."
