@@ -1,2 +1,6 @@
-# close window
-cmd + shift - q : skhd "ctrl + cmd + shift - q"
+# Close current window
+cmd + shift - 0x0C : aerospace close
+ctrl + cmd + shift - 0x0C : aerospace close
+
+# Open launcher
+cmd + shift - 0X1F : open -a "Sol"
