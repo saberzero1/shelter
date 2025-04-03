@@ -21,7 +21,7 @@ if [ ! -f "/private/etc/sudoers.d/yabai" ]; then
 fi
 
 # Construct the new sudoers entry
-SUDOERS_ENTRY="emile ALL=(root) NOPASSWD:$HASH $YABAI_PATH --load-sa"
+SUDOERS_ENTRY="emile ALL=(root) NOPASSWD:$HASH "$YABAI_PATH" --load-sa"
 
 # Write the netry to /private/etc/sudoers.d/yabai
 echo "$SUDOERS_ENTRY" | sudo tee /private/etc/sudoers.d/yabai >/dev/null
