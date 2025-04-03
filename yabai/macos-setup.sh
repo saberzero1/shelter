@@ -14,6 +14,12 @@ if [ -z "$HASH" ]; then
   exit 1
 fi
 
+# Check if /private/etc/sudoers.d/yabai exists
+if [ ! -f /private/etc/sudoers.d/yabai ]; then
+  echo "/private/etc/sudoers.d/yabai does not exists. Creating it."
+  touch /private/etc/sudoers.d/yabai
+fi
+
 # Construct the new sudoers entry
 SUDOERS_ENTRY="emile ALL=(root) NOPASSWD:$HASH $YABAI_PATH --load-sa"
 
