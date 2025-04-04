@@ -3,4 +3,5 @@ cmd + shift - 0x0C : aerospace close
 ctrl + cmd + shift - 0x0C : aerospace close
 
 # Open launcher
-cmd + shift - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
+# cmd + shift - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
+cmd + shift - 0x1F : ctrl - 0x31
