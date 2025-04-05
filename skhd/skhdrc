@@ -1,6 +1,8 @@
 # Close current window
-ctrl + shift - 0x0C : aerospace close
-ctrl + alt + shift - 0x0C : aerospace close
+# ctrl + shift - 0x0C : aerospace close
+# ctrl + alt + shift - 0x0C : aerospace close
+alt + ctrl - 0x0C : aerospace close
 
 # Open launcher
-ctrl + shift - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
+# ctrl + shift - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
+alt + ctrl - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
