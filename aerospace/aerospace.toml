@@ -84,7 +84,7 @@ alt-cmd-ctrl-q = 'close --quit-if-last-window'
 
 alt-cmd-r = 'mode resize'
 
-alt-cmd-ctrl-o = 'exec-and-forget open -n /Applications/Sol.app/Contents/MacOS/sol'
+# alt-cmd-ctrl-o = 'exec-and-forget open -n /Applications/Sol.app/Contents/MacOS/sol'
 
 [mode.resize.binding]
 h = 'resize width -50'
