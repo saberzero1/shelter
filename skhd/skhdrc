@@ -5,4 +5,6 @@ alt + ctrl - 0x0C : aerospace close
 
 # Open launcher
 # ctrl + shift - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
-alt + ctrl - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
+# alt + ctrl - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
+# alt + ctrl - 0x1F : find -a "Sol"
+alt + ctrl - 0x1F : find -a "Sol" -exec open {} \;
