@@ -11,7 +11,7 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 # thefuck replacement pay-respects
-eval $(pay-respects zsh --alias fuck --nocnf)
+eval "$(pay-respects zsh --alias fuck --nocnf)"
 
 # Aerospace on Silicon
 if [[ $(uname -m) == 'arm64' ]]; then
