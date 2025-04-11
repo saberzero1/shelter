@@ -28,7 +28,7 @@ hydrate() {
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find $(eval echo $(xargs <"$HOME/.config/tmux/scripts/directories")) -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find $(eval echo $(xargs <"$HOME/.config/scripts/tmux/directories")) -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
