@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+start-tmux-sessionizer() {
+  run-shell "tmux neww ~/.config/tmux/scripts/tmux-sessionizer"
+}
