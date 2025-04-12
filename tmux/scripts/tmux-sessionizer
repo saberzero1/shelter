@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Usage:
 # tmux-sessionizer [<partial name of session>]
