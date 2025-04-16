@@ -31,7 +31,7 @@ client.background       #ffffff
 default_border pixel 1
 
 # Wallpaper
-output * bg /home/saberzero1/Repos/dotfiles/croire/assets/wallpaper_night.png fill
+output * bg /home/saberzero1/Repos/shelter/assets/wallpaper_night.png fill
 
 # Key bindings
   # Start a terminal
@@ -51,9 +51,9 @@ output * bg /home/saberzero1/Repos/dotfiles/croire/assets/wallpaper_night.png fi
   bindsym $mod+c reload
 
   # Screenshots
-  bindsym Print exec /home/saberzero1/Repos/dotfiles-submodules/croire/configFiles/sway-interactive-screenshot/sway-interactive-screenshot
+  bindsym Print exec /home/saberzero1/Repos/shelter/sway-interactive-screenshot/sway-interactive-screenshot
   # Screen recordings
-  bindsym Shift+Print exec /home/saberzero1/Repos/dotfiles-submodules/croire/configFiles/sway-interactive-screenshot/sway-interactive-screenshot --video
+  bindsym Shift+Print exec /home/saberzero1/Repos/shelter/sway-interactive-screenshot/sway-interactive-screenshot --video
 
   # Screenshots
   # bindsym $mod+Print exec "$(grimshot)" --notify save screen /home/saberzero1/Pictures/Screenshots/Screenshot-$(date +'%H:%M:%S.png') # All visible outputs
@@ -240,6 +240,6 @@ exec systemctl --user import-environment
 #exec gnome-keyring-daemon --start --components=secrets,ssh
 
 # Swaylock
-bindsym Mod4+l exec swaylock -i "/home/saberzero1/Repos/dotfiles-submodules/croire/assets/wallpaper_night_blurred.png" --indicator-radius 100 --indicator-thickness 7 --hide-keyboard-layout --disable-caps-lock-text --ignore-empty-password --ring-color b4f9f8 --key-hl-color c0caf5 --line-color 00000000 --inside-color b4f9f888 --separator-color 00000000 --ring-wrong-color f7768e --line-wrong-color 00000000 --inside-wrong-color f7768e88 --text-wrong-color 00000000 --ring-ver-color 7aa2f7 --line-ver-color 00000000 --inside-ver-color 7aa2f788 --text-ver-color 00000000 --ring-clear-color 565f89 --line-clear-color 00000000 --inside-clear-color 565f8988 --text-clear-color 00000000 --ring-caps-lock-color e0af68 --line-caps-lock-color 00000000 --inside-caps-lock-color e0af6888 --text-caps-lock-color 00000000
+bindsym Mod4+l exec swaylock -i "/home/saberzero1/Repos/shelter/assets/wallpaper_night_blurred.png" --indicator-radius 100 --indicator-thickness 7 --hide-keyboard-layout --disable-caps-lock-text --ignore-empty-password --ring-color b4f9f8 --key-hl-color c0caf5 --line-color 00000000 --inside-color b4f9f888 --separator-color 00000000 --ring-wrong-color f7768e --line-wrong-color 00000000 --inside-wrong-color f7768e88 --text-wrong-color 00000000 --ring-ver-color 7aa2f7 --line-ver-color 00000000 --inside-ver-color 7aa2f788 --text-ver-color 00000000 --ring-clear-color 565f89 --line-clear-color 00000000 --inside-clear-color 565f8988 --text-clear-color 00000000 --ring-caps-lock-color e0af68 --line-caps-lock-color 00000000 --inside-caps-lock-color e0af6888 --text-caps-lock-color 00000000
 
 include @sysconfdir@/sway/config.d/*
