@@ -26,11 +26,12 @@ jobs:
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
           cp -r ${{ github.workspace }}/nvim/* $HOME/.config/nvim/
+          cp ${{ github.workspace }}/lazy-lock.json $HOME/.config/nvim/lazy-lock.json
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
           # $HOME/nvim.appimage --headless "+Lazy! sync" +qa
           nvim --headless "+Lazy! sync" +qa
-          cp -r $HOME/.config/nvim/lazy-lock.json ${{ github.workspace }}/nvim/lazy-lock.json
+          cp -r $HOME/.config/nvim/lazy-lock.json ${{ github.workspace }}/lazy-lock.json
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
