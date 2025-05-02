@@ -28,6 +28,7 @@ hydrate() {
     tmux send-keys -t $1 "tmux new-window -kdS -n 'watcher' -a -t 3 '$SHELL'" c-M
     tmux send-keys -t $1 "tmux new-window -kdS -n 'remote' -a -t 4 '$SHELL'" c-M
     tmux send-keys -t $1 "tmux new-window -kdS -n 'git' -a -t 5 'lazygit'" c-M
+    tmux send-keys -t $1 "clear" c-M
   fi
 }
 
@@ -47,7 +48,6 @@ tmux_running=$(pgrep tmux)
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   tmux new-session -ds $selected_name -c $selected
   hydrate $selected_name $selected
-  exit 0
 fi
 
 if ! has_session $selected_name; then
