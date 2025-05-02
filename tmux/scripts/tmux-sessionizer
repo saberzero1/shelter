@@ -23,12 +23,11 @@ hydrate() {
   elif [ -f $HOME/.tmux-sessionizer ]; then
     tmux send-keys -t $1 "source $HOME/.tmux-sessionizer" c-M
   else
-    tmux send-keys -t $1 "tmux rename-window -t 1 'scratch'" c-M
-    tmux send-keys -t $1 "tmux new-window -kdS -n 'editor' -a -t 2 'nvim'" c-M
-    tmux send-keys -t $1 "tmux new-window -kdS -n 'watcher' -a -t 3 '$SHELL'" c-M
-    tmux send-keys -t $1 "tmux new-window -kdS -n 'remote' -a -t 4 '$SHELL'" c-M
-    tmux send-keys -t $1 "tmux new-window -kdS -n 'git' -a -t 5 'lazygit'" c-M
-    tmux send-keys -t $1 "clear" c-M
+    tmux send-keys -t $1 "tmux rename-window -t 1 'scratch' && clear" c-M
+    tmux send-keys -t $1 "tmux new-window -kdS -n 'editor' -a -t 2 'nvim' && clear" c-M
+    tmux send-keys -t $1 "tmux new-window -kdS -n 'watcher' -a -t 3 '$SHELL' && clear" c-M
+    tmux send-keys -t $1 "tmux new-window -kdS -n 'remote' -a -t 4 '$SHELL' && clear" c-M
+    tmux send-keys -t $1 "tmux new-window -kdS -n 'git' -a -t 5 'lazygit' && clear" c-M
   fi
 }
 
