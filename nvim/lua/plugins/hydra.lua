@@ -20,5 +20,7 @@ return {
     Hydra.setup {
       color = 'pink',
     }
+
+    require 'config.extra.hydras'
   end,
 }
