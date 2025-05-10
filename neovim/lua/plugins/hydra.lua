@@ -4,6 +4,7 @@ return {
   depends = {
     'folke/which-key.nvim',
     'folke/snacks.nvim',
+    'folke/trouble.nvim',
     'lewis6991/gitsigns.nvim',
     'nvim-treesitter/nvim-treesitter-textobjects',
     'akinsho/bufferline.nvim',
@@ -11,7 +12,7 @@ return {
     'gbprod/yanky.nvim',
   },
   config = function()
-    local enable = false
+    local enable = true
 
     if not enable then
       return
@@ -25,6 +26,10 @@ return {
         go { severity = severity }
       end
     end
+    -- Treesitter textobjects
+    local treesitter_move = require 'nvim-treesitter.textobjects.move' {
+      enable = true,
+    }
     -- Git Signs
     local gs = package.loaded.gitsigns
     -- Initialize the plugin
@@ -44,16 +49,61 @@ return {
       hint = [[ Jumper Hydra ]],
       body = '[',
       config = {
-        hint = false,
+        hint = true,
         invoke_on_body = true,
       },
       heads = {
-        -- a
-        -- A
-        -- c
-        -- C
-        -- f
-        -- F
+        { 
+          '<Esc>',
+          function()
+            if Hydra:is_active() then
+              Hydra:exit()
+            end
+          end, 
+          { private = true, desc = 'Exit Hydra' },
+        },
+        {
+          'a',
+          function()
+            treesitter_move.goto_previous_start('@parameter.inner')
+          end,
+          { private = true, desc = 'Goto previous start @parameter.inner' },
+        },
+        { 
+          'A',
+          function()
+            treesitter_move.goto_previous_end('@parameter.inner')
+          end,
+          { private = true, desc = 'Goto previous end @parameter.inner' },
+        },
+        {
+          'c',
+          function()
+            treesitter_move.goto_previous_start('@class.outer')
+          end,
+          { private = true, desc = 'Goto previous start @class.outer' },
+        },
+        {
+          'C',
+          function()
+            treesitter_move.goto_previous_end('@class.outer')
+          end,
+          { private = true, desc = 'Goto previous end @class.outer' },
+        },
+        {
+          'f',
+          function()
+            treesitter_move.goto_previous_start('@function.outer')
+          end,
+          { private = true, desc = 'Goto previous start @function.outer' },
+        },
+        {
+          'F',
+          function()
+            treesitter_move.goto_previous_end('@function.outer')
+          end,
+          { private = true, desc = 'Goto previous end @function.outer' },
+        },
         {
           'h',
           function()
@@ -65,7 +115,6 @@ return {
           end,
           { private = true, desc = 'Prev Hunk' },
         },
-
         {
           'H',
           function()
@@ -84,11 +133,24 @@ return {
         { 'B', '<cmd>BufferLineMovePrev<cr>', { private = true, desc = 'Move buffer prev' } },
         { 'd', diagnostic_goto(false), { private = true, desc = 'Prev Diagnostic' } },
         { 'e', diagnostic_goto(false, 'ERROR'), { private = true, desc = 'Prev Error' } },
-        -- m
-        -- M
+        { 'm', '[m', { private = true, desc = 'Previous method start' } },
+        { 'M', '[M', { private = true, desc = 'Previous method end' } },
         { 'p', '<Plug>(YankyPutIndentBeforeLinewise)', { private = true, desc = 'Put Indented Before Cursor (Linewise)' } },
         { 'P', '<Plug>(YankyPutIndentBeforeLinewise)', { private = true, desc = 'Put Indented Before Cursor (Linewise)' } },
-        { 'q', vim.cmd.cprev, { private = true, desc = 'Previous Quickfix' } },
+        {
+          "q",
+          function()
+            if require("trouble").is_open() then
+              require("trouble").prev({ skip_groups = true, jump = true })
+            else
+              local ok, err = pcall(vim.cmd.cprev)
+              if not ok then
+                vim.notify(err, vim.log.levels.ERROR)
+              end
+            end
+          end,
+          { private = true, desc = "Previous Trouble/Quickfix Item", },
+        },
         -- s
         {
           't',
@@ -105,22 +167,68 @@ return {
         { '<', '[<', { private = true, desc = 'Previous <' } },
       },
     }
+
     Hydra {
       name = 'Hydra Jumper',
       mode = m,
       hint = [[ Jumper Hydra ]],
       body = ']',
       config = {
-        hint = false,
+        hint = true,
         invoke_on_body = true,
       },
       heads = {
-        -- a
-        -- A
-        -- c
-        -- C
-        -- f
-        -- F
+        { 
+          '<Esc>',
+          function()
+            if Hydra:is_active() then
+              Hydra:exit()
+            end
+          end, 
+          { private = true, desc = 'Exit Hydra' }
+        },
+        {
+          'a',
+          function()
+            treesitter_move.goto_next_start('@parameter.inner')
+          end,
+          { private = true, desc = 'Goto next start @parameter.inner' },
+        },
+        {
+          'A',
+          function()
+            treesitter_move.goto_next_end('@parameter.inner')
+          end,
+          { private = true, desc = 'Goto next end @parameter.inner' },
+        },
+        {
+          'c',
+          function()
+            treesitter_move.goto_next_start('@class.outer')
+          end,
+          { private = true, desc = 'Goto next start @class.outer' },
+        },
+        {
+          'C',
+          function()
+            treesitter_move.goto_next_end('@class.outer')
+          end,
+          { private = true, desc = 'Goto next end @class.outer' },
+        },
+        {
+          'f',
+          function()
+            treesitter_move.goto_next_start('@function.outer')
+          end,
+          { private = true, desc = 'Goto next start @function.outer' },
+        },
+        {
+          'F',
+          function()
+            treesitter_move.goto_next_end('@function.outer')
+          end,
+          { private = true, desc = 'Goto next end @function.outer' },
+        },
         {
           'h',
           function()
@@ -150,11 +258,24 @@ return {
         { 'B', '<cmd>BufferLineMoveNext<cr>', { private = true, desc = 'Move buffer next' } },
         { 'd', diagnostic_goto(true), { private = true, desc = 'Next Diagnostic' } },
         { 'e', diagnostic_goto(true, 'ERROR'), { private = true, desc = 'Next Error' } },
-        -- m
-        -- M
+        { 'm', ']m', { private = true, desc = 'Next method start' } },
+        { 'M', ']M', { private = true, desc = 'Next method end' } },
         { 'p', '<Plug>(YankyPutIndentAfterLinewise)', { private = true, desc = 'Put Indented After Cursor (Linewise)' } },
         { 'P', '<Plug>(YankyPutIndentAfterLinewise)', { private = true, desc = 'Put Indented After Cursor (Linewise)' } },
-        { 'q', vim.cmd.cnext, { private = true, desc = 'Next Quickfix' } },
+        {
+          "q",
+          function()
+            if require("trouble").is_open() then
+              require("trouble").next({ skip_groups = true, jump = true })
+            else
+              local ok, err = pcall(vim.cmd.cnext)
+              if not ok then
+                vim.notify(err, vim.log.levels.ERROR)
+              end
+            end
+          end,
+          { private = true, desc = "Next Trouble/Quickfix Item", },
+        },
         -- s
         {
           't',
@@ -171,5 +292,6 @@ return {
         { '>', ']>', { private = true, desc = 'Next <' } },
       },
     }
+
   end,
 }
