@@ -17,8 +17,12 @@ local diagnostic_goto = function(next, severity)
   end
 end
 -- Treesitter textobjects
-local treesitter_move = require 'nvim-treesitter.textobjects.move' {
-  enable = true,
+local treesitter_move = require 'nvim-treesitter.configs'.setup {
+  textobjects = {
+    move = {
+      enable = true,
+    },
+  },
 }
 -- Git Signs
 local gs = package.loaded.gitsigns
