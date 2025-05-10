@@ -18,6 +18,9 @@ jobs:
       - name: Install neovim
         run: sudo apt install -y git curl wget luajit build-essential libfuse-dev
 
+      - name: Install dependencies
+        run: sudo apt install -y markdownlint-cli2 sqlfluff
+
       - name: Update packages
         run: |
           # wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-86_64.appimage -O $HOME/nvim.appimage
