@@ -6,6 +6,23 @@ end
 
 -- Set up layers
 local M = {} -- modes
+
+-- External keymaps
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go { severity = severity }
+  end
+end
+-- Treesitter textobjects
+local treesitter_move = require 'nvim-treesitter.textobjects.move' {
+  enable = true,
+}
+-- Git Signs
+local gs = package.loaded.gitsigns
+
 -- Set up heads
 M.jump_prev_hydra = Hydra {
   name = 'Hydra Jumper',
