@@ -33,7 +33,7 @@ return {
     local util = require 'hydra.statusline'
     -- local Layer = require 'hydra.layer'
     Hydra.setup {
-      color = 'red',
+      color = 'pink',
     }
 
     -- Set up layers
@@ -41,7 +41,7 @@ return {
     -- Set up heads
     Hydra {
       name = 'Hydra Jumper',
-      mode = m,
+      mode = { 'n', 'x' },
       hint = [[ Jumper Hydra ]],
       body = '[',
       config = {
@@ -49,15 +49,7 @@ return {
         invoke_on_body = true,
       },
       heads = {
-        { 
-          '<Esc>',
-          function()
-            if Hydra:is_active() then
-              Hydra:exit()
-            end
-          end, 
-          { private = true, desc = 'Exit Hydra' },
-        },
+        { '<Esc>', nil, { private = true, exit = true, desc = 'Exit Hydra' } },
         {
           'a',
           function()
@@ -166,7 +158,7 @@ return {
 
     Hydra {
       name = 'Hydra Jumper',
-      mode = m,
+      mode = {'n', 'x'},
       hint = [[ Jumper Hydra ]],
       body = ']',
       config = {
@@ -174,15 +166,7 @@ return {
         invoke_on_body = true,
       },
       heads = {
-        { 
-          '<Esc>',
-          function()
-            if Hydra:is_active() then
-              Hydra:exit()
-            end
-          end, 
-          { private = true, desc = 'Exit Hydra' }
-        },
+        { '<Esc>', nil, { private = true, exit = true, desc = 'Exit Hydra' } },
         {
           'a',
           function()

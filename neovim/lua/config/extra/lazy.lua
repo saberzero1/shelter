@@ -34,15 +34,6 @@ settings.spec = {
   { import = 'lazyvim.plugins.extras.ui.treesitter-context' },
   -- util
   { import = 'lazyvim.plugins.extras.util.gitui' },
-  -- import/override with your plugins
-  { import = 'plugins.colorizer' },
-  { import = 'plugins.discord' },
-  { import = 'plugins.editor' },
-  { import = 'plugins.hydra' },
-  { import = 'plugins.lsp' },
-  { import = 'plugins.multicursor' },
-  { import = 'plugins.precognition' },
-  { import = 'plugins.theme' },
 }
 
 settings.ui = {
