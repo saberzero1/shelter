@@ -15,11 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "current"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+        run: pip install sqlfluff
+
+
       - name: Install neovim
         run: sudo apt install -y git curl wget luajit build-essential libfuse-dev
 
       - name: Install dependencies
-        run: sudo apt install -y markdownlint-cli2 sqlfluff
+        run: |
+          npm install markdownlint-cli2
 
       - name: Update packages
         run: |
