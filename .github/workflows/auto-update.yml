@@ -30,7 +30,7 @@ jobs:
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
           # $HOME/nvim.appimage --headless "+Lazy! sync" +qa
-          nvim --headless "+Lazy! install" "+Lazy! update" "+Lazy! clean" "gs15" +qa
+          nvim --headless "+Lazy! install" "+Lazy! update" "+Lazy! clean" "+Sleep! 10" +qa
           cp -r $HOME/.config/nvim/lazy-lock.json ${{ github.workspace }}/lazy-lock.json
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
