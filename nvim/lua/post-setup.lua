@@ -9,6 +9,8 @@ end
 --vim.o.statuscolumn = "%!v:lua.require('scripts.status-column').status_bar()"
 require 'scripts.highlight'
 
+require 'config.extra.hydras'
+
 --require 'scripts.keychecker'
 
 local alpha = function()
