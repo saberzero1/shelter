@@ -52,7 +52,7 @@
           Snacks.profiler.status(),
           -- stylua: ignore
           {
-            function() return require("hydra.statusline"):get_name() end
+            function() return require("hydra.statusline"):get_name() end,
             cond = function() return package.loaded["hydra"] and require("hydra.statusline"):is_active() end,
             color = function() return { fg = Snacks.util.color("Special") } end,
           },
