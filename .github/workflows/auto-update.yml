@@ -42,7 +42,7 @@ jobs:
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
           cp -r ${{ github.workspace }}/nvim $HOME/.config
-          cp ${{ github.workspace }}/lazy-lock.json $HOME/.config/nvim/lazy-lock.json
+          # cp ${{ github.workspace }}/lazy-lock.json $HOME/.config/nvim/lazy-lock.json
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
           # $HOME/nvim.appimage --headless "+Lazy! sync" +qa
