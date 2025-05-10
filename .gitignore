@@ -7,3 +7,8 @@ spell/
 .vscode/
 
 .DS_Store
+
+# Prevents GitHub Actions from adding these.
+node_modules
+package.json
+package-lock.json
