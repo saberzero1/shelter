@@ -22,10 +22,8 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-        run: pip install sqlfluff
-
+          with:
+            python-version: '3.13'
 
       - name: Install neovim
         run: sudo apt install -y git curl wget luajit build-essential libfuse-dev
@@ -33,6 +31,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install markdownlint-cli2
+          pip install sqlfluff
 
       - name: Update packages
         run: |
