@@ -36,11 +36,12 @@ jobs:
       - name: Update packages
         run: |
           # wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-86_64.appimage -O $HOME/nvim.appimage
-          sudo apt install neovim
+          # sudo apt install neovim
+          sudo snap install --edge nvim --classic
           # chmod +x $HOME/nvim.appimage
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
-          cp -r ${{ github.workspace }}/nvim/* $HOME/.config/nvim/
+          cp -r ${{ github.workspace }}/nvim $HOME/.config
           cp ${{ github.workspace }}/lazy-lock.json $HOME/.config/nvim/lazy-lock.json
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
