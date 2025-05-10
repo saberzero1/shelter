@@ -18,6 +18,7 @@ return {
   { import = 'plugins.colorizer' },
   { import = 'plugins.discord' },
   { import = 'plugins.editor' },
+  { import = 'plugins.gutter' },
   { import = 'plugins.hydra' },
   { import = 'plugins.lsp' },
   { import = 'plugins.multicursor' },
