@@ -37,9 +37,9 @@ return {
     }
 
     -- Set up layers
-    local m = { 'n', 'x' } -- modes
+    local M = {} -- modes
     -- Set up heads
-    Hydra {
+    M.jump_prev_hydra = Hydra {
       name = 'Hydra Jumper',
       mode = { 'n', 'x' },
       hint = [[ Jumper Hydra ]],
@@ -156,7 +156,7 @@ return {
       },
     }
 
-    Hydra {
+    M.jump_next_hydra = Hydra {
       name = 'Hydra Jumper',
       mode = {'n', 'x'},
       hint = [[ Jumper Hydra ]],
@@ -272,6 +272,8 @@ return {
         { '>', ']>', { private = true, desc = 'Next <' } },
       },
     }
+
+    return M
 
   end,
 }
