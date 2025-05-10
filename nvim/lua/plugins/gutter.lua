@@ -30,13 +30,14 @@
         disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
       },
       sections = {
-        lualine_a = { function()
-           if hydra_status:is_active() then
-             hydra_status:get_name()
-           else
-             "mode"
-           end
-         end
+        lualine_a = {
+          -- stylua: ignore
+          {
+            function() return hydra_status:get_name() end
+            cond = function() return package.loaded["hydra"] and require("hydra.statusline").hydra_status:is_active() end,
+            color = function() return { fg = Snacks.util.color("Special") } end,
+          },
+          "mode",
         },
 
         lualine_b = { "branch" },
