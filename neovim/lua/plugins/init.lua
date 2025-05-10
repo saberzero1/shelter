@@ -14,7 +14,4 @@ else
   }
 end
 ]]--
-return {
-  { import = 'plugins.hydra' },
-  { import = 'plugins.multicursor' },
-}
+return {}

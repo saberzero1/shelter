@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   'neovim/nvim-lspconfig',
+  enabled = false,
   dependencies = {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
   },

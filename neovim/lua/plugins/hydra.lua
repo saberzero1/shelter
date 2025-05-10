@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   'nvimtools/hydra.nvim',
+  enabled = true,
   depends = {
     'folke/which-key.nvim',
     'folke/snacks.nvim',
@@ -12,11 +13,6 @@ return {
     'gbprod/yanky.nvim',
   },
   config = function()
-    local enable = true
-
-    if not enable then
-      return
-    end
     -- External keymaps
     -- diagnostic
     local diagnostic_goto = function(next, severity)
