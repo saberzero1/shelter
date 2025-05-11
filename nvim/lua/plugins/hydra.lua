@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   'nvimtools/hydra.nvim',
-  enabled = true,
+  enabled = false,
   depends = {
     'folke/which-key.nvim',
     'folke/snacks.nvim',

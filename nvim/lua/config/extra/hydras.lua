@@ -1,3 +1,8 @@
+local enabled = false
+if not enabled then
+  return
+end
+
 local ok_hydra, Hydra = pcall(require, 'hydra')
 if not ok_hydra then
   vim.notify('hydra not installed...', vim.log.ERROR)
