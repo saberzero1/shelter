@@ -2,6 +2,16 @@
 #########
 # Setup #
 #########
+yabai -m space 1 --label "1"
+yabai -m space 2 --label "2"
+yabai -m space 3 --label "3"
+yabai -m space 4 --label "4"
+yabai -m space 5 --label "5"
+yabai -m space 6 --label "6"
+yabai -m space 7 --label "7"
+yabai -m space 8 --label "8"
+yabai -m space 9 --label "9"
+yabai -m space 10 --label "10"
 
 # window opacity (default: off)
 # render all unfocused windows with 90% opacity
@@ -47,8 +57,8 @@ yabai -m config mouse_follows_focus off
 # "stack" - is what I use, keeps a single app on the front
 # "bsp" - binary space partitioning enables automatic tiling (partitioning)
 # "float" - default mode, windows are not managed
-yabai -m config layout stack
-# yabai -m config layout bsp
+# yabai -m config layout stack
+yabai -m config layout bsp
 # yabai -m config layout float
 
 ##########
