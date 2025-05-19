@@ -1,3 +1,4 @@
+#+/usr/bin/env sh
 #########
 # Setup #
 #########
@@ -71,6 +72,19 @@ yabai -m config window_placement second_child
 # modify window shadows (default: on, options: on, off, float)
 # show shadows only for floating windows
 yabai -m config window_shadow float
+
+# Move to any other visible windown whenever a window is closed
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# Exclusion rules
+# This makes sure that the windows are not managed by yabai
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Stats$" manage=off
+yabai -m rule --add app="^Disk Utility$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
 
 ###############
 # keybindings #

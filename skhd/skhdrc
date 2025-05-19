@@ -1,10 +1,58 @@
 # Close current window
 # ctrl + shift - 0x0C : aerospace close
 # ctrl + alt + shift - 0x0C : aerospace close
-alt + ctrl - 0x0C : aerospace close
+# alt + ctrl - 0x0C : aerospace close
 
 # Open launcher
 # ctrl + shift - 0x1F : /Applications/Sol.app/Contents/MacOS/sol
-alt + ctrl - 0x1F : open -na /Applications/Sol.app/Contents/MacOS/sol
+# alt + ctrl - 0x1F : open -na /Applications/Sol.app/Contents/MacOS/sol
 # alt + ctrl - 0x1F : find -a "Sol"
 # alt + ctrl - 0x1F : find -a "Sol" -exec open {} \;
+
+# Close current window
+ctrl + alt - q: close
+
+# Open launcher
+ctrl + alt - o: open -na /Applications/Sol.app/Contents/MacOS/sol
+
+# Window focus
+ctrl + alt - h: yabai -m window --focus west
+ctrl + alt - j: yabai -m window --focus south
+ctrl + alt - k: yabai -m window --focus north
+ctrl + alt - l: yabai -m window --focus east
+
+# Window movement
+ctrl + alt + cmd - h: yabai -m window --swap west
+ctrl + alt + cmd - j: yabai -m window --swap south
+ctrl + alt + cmd - k: yabai -m window --swap north
+ctrl + alt + cmd - l: yabai -m window --swap east
+
+# Fullscreen
+ctrl + alt - f: yabai -m window --toggle zoom-fullscreen
+
+# Restart yabai
+ctrl + alt - r: yabai --service-stop; yabai --service-start
+
+# Move focus
+ctrl + alt - 1: yabai -m window --focus 1
+ctrl + alt - 2: yabai -m window --focus 2
+ctrl + alt - 3: yabai -m window --focus 3
+ctrl + alt - 4: yabai -m window --focus 4
+ctrl + alt - 5: yabai -m window --focus 5
+ctrl + alt - 6: yabai -m window --focus 6
+ctrl + alt - 7: yabai -m window --focus 7
+ctrl + alt - 8: yabai -m window --focus 8
+ctrl + alt - 9: yabai -m window --focus 9
+ctrl + alt - 0: yabai -m window --focus 10
+
+# Move windows
+ctrl + alt - 1: yabai -m window --space 1
+ctrl + alt - 2: yabai -m window --space 2
+ctrl + alt - 3: yabai -m window --space 3
+ctrl + alt - 4: yabai -m window --space 4
+ctrl + alt - 5: yabai -m window --space 5
+ctrl + alt - 6: yabai -m window --space 6
+ctrl + alt - 7: yabai -m window --space 7
+ctrl + alt - 8: yabai -m window --space 8
+ctrl + alt - 9: yabai -m window --space 9
+ctrl + alt - 0: yabai -m window --space 10
