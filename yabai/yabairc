@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo yabai --load-sa
-yabai -m signal --add even=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 function setup_space {
   local idx="$1"
@@ -44,25 +44,25 @@ yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.9
 
 # Make the below apps transparent
-yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config active_window_opacity $opacity_value"
-yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config normal_window_opacity 0.00001"
+# yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config active_window_opacity $opacity_value"
+# yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config normal_window_opacity 0.00001"
 
 # I want the apps here to always be shown, probably they'll be on the right
 # padding section. This is my "sticky notes"
-yabai -m rule --add app="^${apps_transp_ignore}$" opacity=$opacity_value
-yabai -m rule --add app="^${apps_stream}$" opacity=1
+# yabai -m rule --add app="^${apps_transp_ignore}$" opacity=$opacity_value
+# yabai -m rule --add app="^${apps_stream}$" opacity=1
 
 # When any other app gains focus, reset both active and background window opacity to fully visible
-yabai -m signal --add event=window_focused app!="^${apps_transparent}$" action="yabai -m config active_window_opacity 1.0"
-yabai -m signal --add event=window_focused app!="^${apps_transparent}$" action="yabai -m config normal_window_opacity 1.0"
+# yabai -m signal --add event=window_focused app!="^${apps_transparent}$" action="yabai -m config active_window_opacity 1.0"
+# yabai -m signal --add event=window_focused app!="^${apps_transparent}$" action="yabai -m config normal_window_opacity 1.0"
 
 # yabai -m signal --add event=window_focused app=".*CleanShot X.*" action="yabai -m config active_window_opacity 1.0"
 # yabai -m signal --add event=window_focused app=".*CleanShot X.*" action="yabai -m config normal_window_opacity 1.0"
 
 # Nice trick shared by @timhansinger8030 in my YouTube video https://youtu.be/SLCR1oO65GI
 # Allows to see mission control apps when calling mission control from a transparent app
-yabai -m signal --add event=mission_control_enter action="yabai -m config normal_window_opacity 1.0"
-yabai -m signal --add event=mission_control_exit action="yabai -m config active_window_opacity 1.0"
+# yabai -m signal --add event=mission_control_enter action="yabai -m config normal_window_opacity 1.0"
+# yabai -m signal --add event=mission_control_exit action="yabai -m config active_window_opacity 1.0"
 
 # https://github.com/koekeishiya/yabai/issues/1929
 
@@ -90,11 +90,11 @@ yabai -m config layout bsp
 ##########
 
 # no spacing around windows
-yabai -m config top_padding    0
+yabai -m config top_padding 0
 yabai -m config bottom_padding 0
-yabai -m config left_padding   0
-yabai -m config right_padding  0
-yabai -m config window_gap     0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+yabai -m config window_gap 0
 
 # on or off (default: off)
 # autobalance window sizing
