@@ -1,17 +1,41 @@
-#+/usr/bin/env sh
+#!/usr/bin/env bash
+
+sudo yabai --load-sa
+yabai -m signal --add even=dock_did_restart action="sudo yabai --load-sa"
+
+function setup_space {
+  local idx="$1"
+  local label="$2"
+  local space=
+  echo "setup space $idx : $label"
+
+  space=$(yabai -m query --spaces --space $idx)
+
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  yabai -m space "$idx" --label "$label"
+}
+
 #########
 # Setup #
 #########
-yabai -m space 1 --label "1"
-yabai -m space 2 --label "2"
-yabai -m space 3 --label "3"
-yabai -m space 4 --label "4"
-yabai -m space 5 --label "5"
-yabai -m space 6 --label "6"
-yabai -m space 7 --label "7"
-yabai -m space 8 --label "8"
-yabai -m space 9 --label "9"
-yabai -m space 10 --label "10"
+setup_space 1 one
+setup_space 2 two
+setup_space 3 three
+setup_space 4 four
+setup_space 5 five
+setup_space 6 six
+setup_space 7 seven
+setup_space 8 eight
+setup_space 9 nine
+setup_space 10 ten
+
+# Assign applications to spaces
+yabai -m rule --add app="^Wezterm$" space=^1
+yabai -m rule --add app="^Obsidian$" space=2
+yabai -m rule --add app="^Wavebox$" space=3
 
 # window opacity (default: off)
 # render all unfocused windows with 90% opacity
