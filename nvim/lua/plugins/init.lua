@@ -17,7 +17,6 @@ end
 --
 return {
   { import = 'plugins.colorizer' },
-  { import = 'plugins.dashboard' },
   { import = 'plugins.discord' },
   { import = 'plugins.editor' },
   { import = 'plugins.gutter' },
@@ -25,5 +24,6 @@ return {
   { import = 'plugins.lsp' },
   { import = 'plugins.multicursor' },
   { import = 'plugins.precognition' },
+  { import = 'plugins.snacks' },
   { import = 'plugins.theme' },
 }
