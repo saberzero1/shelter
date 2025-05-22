@@ -13,9 +13,11 @@ else
     { import = 'plugins.integration' },
   }
 end
-]]--
+]]
+--
 return {
   { import = 'plugins.colorizer' },
+  { import = 'plugins.dashboard' },
   { import = 'plugins.discord' },
   { import = 'plugins.editor' },
   { import = 'plugins.gutter' },
