@@ -35,6 +35,9 @@ vim.opt.showmode = false
 --  vim.opt.clipboard = 'unnamedplus'
 --end)
 
+-- Enable editorconfig
+vim.g.editorconfig = true
+
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -87,5 +90,7 @@ vim.api.nvim_set_hl(0, 'LineNr4', { bg = '#3B4261' })
 vim.api.nvim_set_hl(0, 'LineNr3', { bg = '#4d71a0' })
 vim.api.nvim_set_hl(0, 'LineNr2', { bg = '#6fc1cf' })
 vim.api.nvim_set_hl(0, 'LineNr1', { bg = '#eeffee' })
-vim.api.nvim_set_hl(0, 'LineNr0', { bg = '#FFFFFF', --bg = "NONE",
- bold = true })
+vim.api.nvim_set_hl(0, 'LineNr0', {
+  bg = '#FFFFFF', --bg = "NONE",
+  bold = true,
+})
