@@ -10,7 +10,7 @@
   "copilot.lua": { "branch": "master", "commit": "5f726c8e6bbcd7461ee0b870d4e6c8a973b55b64" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
-  "fzf-lua": { "branch": "main", "commit": "701d9dd9298ef9b991b7302e79b609badff74ed8" },
+  "fzf-lua": { "branch": "main", "commit": "7a16a3183db33566242c15c90848421c1ab58036" },
   "gitsigns.nvim": { "branch": "main", "commit": "8b729e489f1475615dc6c9737da917b3bc163605" },
   "grug-far.nvim": { "branch": "main", "commit": "f24022147ca4a0fe1d424a520a9437accbeba193" },
   "harpoon": { "branch": "harpoon2", "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7" },
