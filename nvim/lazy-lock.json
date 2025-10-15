@@ -17,7 +17,7 @@
   "hydra.nvim": { "branch": "main", "commit": "8c4a9f621ec7cdc30411a1f3b6d5eebb12b469dc" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazydev.nvim": { "branch": "main", "commit": "e28ce52fc7ff79fcb76f0e79ee6fb6182fca90b9" },
-  "lualine.nvim": { "branch": "master", "commit": "872c2c38be370f2e25d4765d85753d590a99f9f8" },
+  "lualine.nvim": { "branch": "master", "commit": "e533fac71bc361768f90004af695cd1f1aa1900a" },
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "6bdb14f230de0904229ec367b410fb817e59b072" },
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "86389a3dd687cfaa647b6f44731e492970034baa" },
